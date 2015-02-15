@@ -1,0 +1,71 @@
+<html>
+<body>
+
+<div id="header">
+<h1> PITT GOT</h1>
+
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Your Progress Towards Graduation...</h2>
+  <div class="progress">
+    <style type="text/css">
+      .progress {
+        position:relative;
+      }
+      .progress span {
+      position:absolute;
+      left:0;
+      width:100%;
+      text-align:center;
+      z-index:2;
+      color:white;
+      }
+   </style>
+    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+    <span class="progress-value">70%</span>
+    </div>
+  </div>
+</div>
+
+</div>
+<div id="nav">
+<a href="/courses">Courses</a><br>
+<a href="/settings">Settings</a><br>
+</div>
+
+
+<div id="section">
+Where cool stuff goes.
+Hello, {{name}}.
+</div>
+ 
+
+</body>
+</html>
+<style>
+#header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+#nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:100px;
+    float:left;
+    padding:5px; 
+}
+#section {
+    width:350px;
+    float:left;
+    padding:10px; 
+}

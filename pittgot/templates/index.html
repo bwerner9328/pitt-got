@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="/static/login.css" />
+		<title>
+		Pitt GOT Log In
+		</title>
+	</head>
+	<body>
+		<h1>Pitt GOT</h1><br><br>
+		<div id="content">
+		<div id="Summary">
+		<h2>Welcome to Pitt Graduation On Time</h2>
+		This website is designed to be an application that assists in tracking the average college student's path to graduation. Currently it is <b>underdevelopment</b>.
+		</div>
+		<form action = "/home" method = "post">
+		<div id="Login">
+		<h2>Log In</h2><br>
+		<p><h4>Email:</h4>
+		<input type="text" name="emaillogin"><br>
+		<h4>Password:</h4>
+		<input type="password" name="passwordlogin"><br><br>
+		<input type="Submit" value="Login"/>
+		<br>{{incorrectLogin}}
+		</p>
+		</div>
+		</form>
+		<form action = "/welcome" method = "post">
+		<div id="Register">
+		<p><h2>Register Now!</h2>
+		<h4>Name:</h4>
+		<input type="text" name="nameregister"><br>
+		<h4>Email:</h4>
+		<input type="text" name="emailregister"><br>
+		<h4>Password:</h4>
+		<input type="password" name="passwordregister"><br>
+		<h4>Major:</h4>
+		<select name="Major">
+			<option value="Computer Science">Computer Science</option>
+			<option value="Computer Engineering">Computer Engineering</option>
+			<option value="Biology">Biology</option>
+			<option value="Chemistry">Chemistry</option>
+		</select><br><br>
+		<input type="Submit" value="Register"/>
+		<br>{{registered}}
+		</p>
+		</div>
+		</form>
+		</div>
+	</body>
+</html>
