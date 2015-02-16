@@ -136,21 +136,15 @@ class Homepage(webapp2.RequestHandler) :
         courseCredits[i] = row[2]
         i = i+1
 
-      
-      userclassestaken[0] = True
-
-      i =0
-      k = 0
-      for j in range(5):
-        k = j+1
-        for i in range(8):
-          if(userclassestaken.get(k, False) == True):
-            tableElement[k] = " bgcolor= #00FF00>" + courseNames[k] + " <br><br> " + courseId[j] + " <br><br> " + courseCredits[k] + " Credits"
+      for i in range(40):
+        if(userclassestaken):
+          if(userclassestaken[i] == True):
+            tableElement[i+1] = "bgcolor=#00FF00"
           else:
-            tableElement[k] = " bgcolor= #FF0000>" + courseNames[k] + " <br><br> " + courseId[j] + " <br><br> " + courseCredits[k] + " Credits"
-          k = k+5
+            tableElement[i+1] = "bgcolor=#FF0000"
+        else:
+          tableElement[i+1] = "bgcolor=#FF0000"
         
-
 
       homepage_params = {
       'name' : username,
