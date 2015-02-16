@@ -73,7 +73,7 @@ class MainPage(webapp2.RequestHandler) :
 class Welcome(webapp2.RequestHandler) :
   def post(self) :
     m = Users.all()
-    falseBoolList = [False] * 40
+    falseBoolList = [True] * 40
     m.filter("email =", self.request.get('emailregister'))
     if not m.get(): #if email not registered yet.
       if not self.request.get('nameregister') or not self.request.get('emailregister') or not self.request.get('passwordregister') :
@@ -127,6 +127,7 @@ class Homepage(webapp2.RequestHandler) :
         courseNames = {}
         courseCredits = {}
         courseId = {}
+        tableElement = {}
 
       i = 0
       for row in courseList:
@@ -135,13 +136,28 @@ class Homepage(webapp2.RequestHandler) :
         courseCredits[i] = row[2]
         i = i+1
 
+      
+      userclassestaken[0] = True
+
+      i =0
+      k = 0
+      for j in range(5):
+        k = j+1
+        for i in range(8):
+          if(userclassestaken.get(k, False) == True):
+            tableElement[k] = " bgcolor= #00FF00>" + courseNames[k] + " <br><br> " + courseId[j] + " <br><br> " + courseCredits[k] + " Credits"
+          else:
+            tableElement[k] = " bgcolor= #FF0000>" + courseNames[k] + " <br><br> " + courseId[j] + " <br><br> " + courseCredits[k] + " Credits"
+          k = k+5
+        
+
 
       homepage_params = {
       'name' : username,
       'courseNames': courseNames,
       'courseCredits': courseCredits,
       'courseId': courseId,
-      'classTaken': userclassestaken,
+      'classTaken': tableElement,
       }
       render_template(self, 'homepage.html', homepage_params)
 
