@@ -1,6 +1,7 @@
 import cgi
 import cgitb
 import os
+import csv
 import webapp2
 import datetime
 from google.appengine.ext import db
@@ -50,7 +51,7 @@ class MainPage(webapp2.RequestHandler) :
     		main_params = {
     		"name" : username
     		}
-    		render_template(self, 'mainpage-v2.html', main_params)
+    		render_template(self, 'welcome.html', main_params)
     	else : #if password incorrect.
     		message = "Incorrect Log In Information."
     		template_params = {
@@ -107,6 +108,27 @@ class Courses(webapp2.RequestHandler) :
       "name" : username
       }
       render_template(self, 'courses.html', courses_params)
+class Homepage(webapp2.RequestHandler) :
+    def get(self):
+
+      #file open
+      with open("computerengineering.csv", 'r') as csvfile:
+        csvreader = csv.reader(csvfile, dialect='excel')
+        courseList = list(csvreader)
+ 
+        courseNames = {}
+      i = 0
+      for row in courseList:
+        courseNames[i] = row[1]
+        i = i+1
+
+
+      homepage_params = {
+      'name' : username,
+      'courseNames': courseNames
+      }
+      render_template(self, 'homepage.html', homepage_params)
+
 	  
 app = webapp2.WSGIApplication([
   ('/', LogIn),
@@ -114,4 +136,5 @@ app = webapp2.WSGIApplication([
   ('/welcome', Welcome),
   ('/settings', Settings),
   ('/courses', Courses),
+  ('/homepage', Homepage)
 ])

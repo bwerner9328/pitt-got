@@ -1,14 +1,12 @@
 <html>
-	<head>
-		<link rel="stylesheet" type="text/css" href="/static/login.css" />
-		<title>
-		Pitt GOT Log In
-		</title>
-	</head>
+	
+	<link rel="stylesheet" type="text/css" href="/static/welcome.css" />
+
 	<body>
-	<h1>Pitt GOT</h1><br><br>
-	<div id="content">
-	Registration successful. Welcome, {{name}}.
+	{% include "mainpage-v2.html" %}
+	<div id="section">
+	Registration successful. <br>
+	Welcome, {{name}}.
 	</div>
 	</body>
 </html>
