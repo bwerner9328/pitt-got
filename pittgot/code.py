@@ -110,22 +110,29 @@ class Courses(webapp2.RequestHandler) :
       render_template(self, 'courses.html', courses_params)
 class Homepage(webapp2.RequestHandler) :
     def get(self):
-
+      majorCourses = usermajor.lower()
       #file open
       with open("computerengineering.csv", 'r') as csvfile:
         csvreader = csv.reader(csvfile, dialect='excel')
         courseList = list(csvreader)
  
         courseNames = {}
+        courseCredits = {}
+        courseId = {}
+
       i = 0
       for row in courseList:
-        courseNames[i] = row[1]
+        courseNames[i] = row[0]
+        courseId[i] = row[1]
+        courseCredits[i] = row[2]
         i = i+1
 
 
       homepage_params = {
       'name' : username,
-      'courseNames': courseNames
+      'courseNames': courseNames,
+      'courseCredits': courseCredits,
+      'courseId': courseId,
       }
       render_template(self, 'homepage.html', homepage_params)
 
