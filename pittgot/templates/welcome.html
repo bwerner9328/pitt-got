@@ -5,8 +5,18 @@
 	<body>
 	{% include "mainpage-v2.html" %}
 	<div id="section">
-	Registration successful. <br>
-	Welcome, {{name}}.
+		<form action = "/" method = "post">
+			Hello, {{name}}! Welcome to Pitt Graduate On Time! Choose your major from the list below.
+			<select name="Major">
+				<option value="Computer Science">Computer Science</option>
+				<option value="Computer Engineering">Computer Engineering</option>
+			</select><br><br>
+			Please input your GPA in the textfield below.
+			<input type="number" name="GPA" min="0" max="4" step="any" value="0.0"> <br><br>
+			How many credits have you taken as of now?
+			<input type="number" name="creditsTaken" min="0" value="0">
+			<input type="Submit" value="Register"/>
+		</form>
 	</div>
 	</body>
 </html>
