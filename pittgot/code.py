@@ -172,14 +172,15 @@ class CourseSelect(webapp2.RequestHandler) :
       courseCredits = {}
       courseId = {}
       tableElement = {}
+      addCourse = self.request.get('courseCompleted')
 
       i = 0
       for row in courseList:
         courseNames[i] = row[0]
+        if courseNames[i] == addCourse :
+          userclassestaken[i-1] = True
         i = i+1
-      
 
-      classTaken[self.request.selectedIndex] = True
       courses_params = {
 
       }
