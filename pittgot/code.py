@@ -58,11 +58,13 @@ class MainPage(webapp2.RequestHandler) :
           global userclassestaken
           global creditsTaken
           global graduationProgress
+          global classTaken
           username = p.name
           useremail = p.email
           password = p.password
           usermajor = p.major
           userclassestaken = p.classTaken
+          classTaken = p.classTaken
           creditsTaken = 70
           graduationProgress = creditsTaken/127
         main_params = {
@@ -101,12 +103,18 @@ class Welcome(webapp2.RequestHandler) :
         global useremail
         global usermajor
         global userclassestaken
+        global creditsTaken
         global graduationProgress
-        username = user.name
-        useremail = user.email
-        usermajor = user.major
-        userclassestaken = user.classTaken
-        graduationProgress = 0
+        global classTaken
+        username = p.name
+        useremail = p.email
+        password = p.password
+        usermajor = p.major
+        userclassestaken = p.classTaken
+        classTaken = p.classTaken
+        creditsTaken = 70
+        graduationProgress = creditsTaken/127
+        
         welcome_params = {
         "name" : username,
         'graduationProgress': graduationProgress
@@ -127,17 +135,7 @@ class Settings(webapp2.RequestHandler) :
       'graduationProgress': graduationProgress
       }
       render_template(self, 'settings.html', settings_params)
-<<<<<<< HEAD
 
-=======
-class CourseSelect(webapp2.RequestHandler) :
-    def post(self) :
-      classTaken[self.request.get('courseCompleted')] = true
-      courses_params = {
-
-      }
-      render_template(self, 'courseSelect.html', courses_params)
->>>>>>> origin/bens_branch
 class Courses(webapp2.RequestHandler) :
     def get(self):
       majorCourses = usermajor.lower()
@@ -158,16 +156,34 @@ class Courses(webapp2.RequestHandler) :
         i = i+1
 
       courses_params = {
-<<<<<<< HEAD
-      "name" : username,
-      'graduationProgress': graduationProgress
-=======
       'name' : username,
       'courseNames': courseNames,
       'classTaken': tableElement,
->>>>>>> origin/bens_branch
       }
       render_template(self, 'courses.html', courses_params)
+
+class CourseSelect(webapp2.RequestHandler) :
+    def post(self) :
+      with open("computerengineering.csv", 'r') as csvfile:
+        csvreader = csv.reader(csvfile, dialect='excel')
+        courseList = list(csvreader)
+ 
+      courseNames = {}
+      courseCredits = {}
+      courseId = {}
+      tableElement = {}
+
+      i = 0
+      for row in courseList:
+        courseNames[i] = row[0]
+        i = i+1
+      
+
+      classTaken[self.request.selectedIndex] = True
+      courses_params = {
+
+      }
+      render_template(self, 'courseSelect.html', courses_params)
 
 class Homepage(webapp2.RequestHandler) :
     def get(self):
@@ -218,11 +234,8 @@ app = webapp2.WSGIApplication([
   ('/welcome', Welcome),
   ('/settings', Settings),
   ('/courses', Courses),
-<<<<<<< HEAD
   ('/homepage', Homepage),
-])
-=======
-  ('/courseSelect', CourseSelect),
+  ('/CourseSelect', CourseSelect),
   ('/homepage', Homepage)
 ])
->>>>>>> origin/bens_branch
+
