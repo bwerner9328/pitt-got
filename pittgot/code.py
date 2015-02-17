@@ -127,12 +127,45 @@ class Settings(webapp2.RequestHandler) :
       'graduationProgress': graduationProgress
       }
       render_template(self, 'settings.html', settings_params)
+<<<<<<< HEAD
 
+=======
+class CourseSelect(webapp2.RequestHandler) :
+    def post(self) :
+      classTaken[self.request.get('courseCompleted')] = true
+      courses_params = {
+
+      }
+      render_template(self, 'courseSelect.html', courses_params)
+>>>>>>> origin/bens_branch
 class Courses(webapp2.RequestHandler) :
     def get(self):
+      majorCourses = usermajor.lower()
+      #file open
+      with open("computerengineering.csv", 'r') as csvfile:
+        csvreader = csv.reader(csvfile, dialect='excel')
+
+        courseList = list(csvreader)
+ 
+        courseNames = {}
+        courseCredits = {}
+        courseId = {}
+        tableElement = {}
+
+      i = 0
+      for row in courseList:
+        courseNames[i] = row[0]
+        i = i+1
+
       courses_params = {
+<<<<<<< HEAD
       "name" : username,
       'graduationProgress': graduationProgress
+=======
+      'name' : username,
+      'courseNames': courseNames,
+      'classTaken': tableElement,
+>>>>>>> origin/bens_branch
       }
       render_template(self, 'courses.html', courses_params)
 
@@ -179,12 +212,17 @@ class Homepage(webapp2.RequestHandler) :
       }
       render_template(self, 'homepage.html', homepage_params)
 
-    
 app = webapp2.WSGIApplication([
   ('/', LogIn),
   ('/home', MainPage),
   ('/welcome', Welcome),
   ('/settings', Settings),
   ('/courses', Courses),
+<<<<<<< HEAD
   ('/homepage', Homepage),
 ])
+=======
+  ('/courseSelect', CourseSelect),
+  ('/homepage', Homepage)
+])
+>>>>>>> origin/bens_branch
