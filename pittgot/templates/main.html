@@ -1,13 +1,10 @@
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="/static/login.css" />
-		<title>
-		Pitt GOT Log In
-		</title>
+		<link rel="stylesheet" type="text/css" href="/static/mainpage.css" />
 	</head>
 	<body>
-	<h1>Pitt GOT</h1><br><br>
-	<div id="content">
+	{% include "mainpage-v2.html" %}
+	<div id="section">
 	Log In Successful. Hello {{name}}.
 	</div>
 	</body>
