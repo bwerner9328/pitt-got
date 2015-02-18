@@ -8,9 +8,7 @@ from google.appengine.ext import db
 from google.appengine.api import users
 from google.appengine.ext.webapp import template
 
-username = ""
-useremail = ""
-usermajor = ""
+
 userclassestaken = {}
 graduationProgress = 0
 
@@ -21,123 +19,60 @@ def render_template(handler, templatename, templatevalues) :
 
 #The data storage for user info
 class Users(db.Model) :
-  name = db.StringProperty(required=True)
   email = db.StringProperty(required=True)
-  password = db.StringProperty(required=True)
   major = db.StringProperty(required=True)
   classTaken = db.ListProperty(bool)
-  gpa = db.FloatProperty(required=True)
-  creditsTaken = db.IntegerProperty(required=True)
+  gpa = db.FloatProperty()
+  creditsTaken = db.IntegerProperty()
   
 #The first page they come to. Log in page.
-class LogIn(webapp2.RequestHandler) :
-  def get(self) :
-    if username == "" :
-      template_params = {
-      
-      }
-      render_template(self, 'index.html', template_params)
-    else :
-      main_params = {
-        "name" : username
-        }
-      render_template(self, 'main.html', main_params)
-  
-#Page they get on if they are already registered and logged in.
-class MainPage(webapp2.RequestHandler) :
-  def post(self) :
-    q = Users.all()
-    q.filter("email =", self.request.get('emaillogin'))
-    if q.get(): #checks if username is in database.
-      q.filter("password =", self.request.get('passwordlogin'))
-      if q.get(): #checks if password is in database.
-        for p in q.run (limit=1):
-          global username
-          global useremail
-          global usermajor
-          global userclassestaken
-          global creditsTaken
-          global graduationProgress
-          global classTaken
-          username = p.name
-          useremail = p.email
-          password = p.password
-          usermajor = p.major
-          userclassestaken = p.classTaken
-          classTaken = p.classTaken
-          creditsTaken = 70
-          graduationProgress = creditsTaken/127
-        main_params = {
-        "name" : username
-        }
-        render_template(self, 'main.html', main_params)
-      else : #if password incorrect.
-        message = "Incorrect Log In Information."
-        template_params = {
-        "incorrectLogin" : message
-        }
-        render_template(self, 'index.html', template_params)
-    else : #if username is incorrect.
-      message = "Incorrect Log In Information."
-      template_params = {
-      "incorrectLogin" : message,
-      }
-      render_template(self, 'index.html', template_params)
+class MainPage(webapp2.RequestHandler):
 
-class Welcome(webapp2.RequestHandler) :
-  def post(self) :
-    m = Users.all()
-    falseBoolList = [False] * 40
-    m.filter("email =", self.request.get('emailregister'))
-    if not m.get(): #if email not registered yet.
-      if not self.request.get('nameregister') or not self.request.get('emailregister') or not self.request.get('passwordregister') :
-        message = "Cannot have blank fields in your registration."
-        template_params = {
-        "registered" : message,
-        }
-        render_template(self, 'index.html', template_params)
-      else :
-        user = Users(name = self.request.get('nameregister'), email = self.request.get('emailregister'), password = self.request.get('passwordregister'), major = self.request.get('Major'), classTaken = falseBoolList, gpa = 0.0, creditsTaken = 0 )
-        user.put()
-        global username
-        global useremail
-        global usermajor
-        global userclassestaken
-        global creditsTaken
-        global graduationProgress
-        global classTaken
-        username = p.name
-        useremail = p.email
-        password = p.password
-        usermajor = p.major
-        userclassestaken = p.classTaken
-        classTaken = p.classTaken
-        creditsTaken = 70
-        graduationProgress = creditsTaken/127
-        
-        welcome_params = {
-        "name" : username,
-        'graduationProgress': graduationProgress
-        }
-        render_template(self, 'welcome.html', welcome_params)
-    else : #if email already registered.
-      message = "That email has already been registered."
-      template_params = {
-      "registered" : message,
-      'graduationProgress': graduationProgress
+    def get(self):
+      user = users.get_current_user()
+      if user:
+        q = Users.all()
+        q.filter("email =", user.email())
+        if q.get(): #checks if email is in database.
+          main_params = {
+          "name" : user.nickname()
+          }
+          render_template(self, 'main.html', main_params)
+        else :
+          welcome_params = {
+          "name" : user.nickname()
+          }
+          render_template(self, 'welcome.html', welcome_params)
+
+      else:
+        self.redirect(users.create_login_url(self.request.uri))
+
+    def post(self):
+      user = users.get_current_user()
+      falseBoolList = [False] * 40
+      regUser = Users(email = user.email(), major = self.request.get('Major'), classTaken = falseBoolList, gpa = float(self.request.get('GPA')), creditsTaken = int(self.request.get('creditsTaken')))
+      regUser.put()
+      main_params = {
+        "name" : user.nickname()
       }
-      render_template(self, 'index.html', template_params)
+      render_template(self, 'main.html', main_params)
     
 class Settings(webapp2.RequestHandler) :
     def get(self) :
+      user = users.get_current_user()
       settings_params = {
-      "name" : username,
+      "name" : user.nickname(),
       'graduationProgress': graduationProgress
       }
       render_template(self, 'settings.html', settings_params)
 
 class Courses(webapp2.RequestHandler) :
     def get(self):
+      user = users.get_current_user()
+      q = Users.all()
+      q.filter("email =", user.email())
+      for p in q.run(limit=1):
+        usermajor = p.major
       majorCourses = usermajor.lower()
       #file open
       with open("computerengineering.csv", 'r') as csvfile:
@@ -156,7 +91,7 @@ class Courses(webapp2.RequestHandler) :
         i = i+1
 
       courses_params = {
-      'name' : username,
+      'name' : user.nickname(),
       'courseNames': courseNames,
       'classTaken': tableElement,
       }
@@ -164,6 +99,7 @@ class Courses(webapp2.RequestHandler) :
 
 class CourseSelect(webapp2.RequestHandler) :
     def post(self) :
+      user = users.get_current_user()
       with open("computerengineering.csv", 'r') as csvfile:
         csvreader = csv.reader(csvfile, dialect='excel')
         courseList = list(csvreader)
@@ -172,14 +108,20 @@ class CourseSelect(webapp2.RequestHandler) :
       courseCredits = {}
       courseId = {}
       tableElement = {}
+      addCourse = self.request.get('courseCompleted')
 
       i = 0
       for row in courseList:
         courseNames[i] = row[0]
+        if courseNames[i] == addCourse :
+          courses_taken = db.GqlQuery("SELECT * FROM Users WHERE email = :email", email=user.email())
+          for e in courses_taken:
+            if(len(e.classTaken) != 40):
+              e.classTaken = [False]*40
+            e.classTaken[i-1] = True
+            db.put(e)
         i = i+1
-      
 
-      classTaken[self.request.selectedIndex] = True
       courses_params = {
 
       }
@@ -187,6 +129,11 @@ class CourseSelect(webapp2.RequestHandler) :
 
 class Homepage(webapp2.RequestHandler) :
     def get(self):
+      user = users.get_current_user()
+      q = Users.all()
+      q.filter("email =", user.email())
+      for p in q.run(limit=1):
+        usermajor = p.major
       majorCourses = usermajor.lower()
       majorCourses = majorCourses.replace(" ", "")
       majorCourses = majorCourses + ".csv"
@@ -211,6 +158,10 @@ class Homepage(webapp2.RequestHandler) :
         courseCredits[i] = row[2]
         i = i+1
       for i in range(40):
+        q = Users.all()
+        q.filter("email =", user.email())
+        for p in q.run(limit=1):
+          userclassestaken = p.classTaken
         if(userclassestaken):
           if(userclassestaken[i] == True):
             tableElement[i+1] = "bgcolor=#00FF00"
@@ -219,7 +170,7 @@ class Homepage(webapp2.RequestHandler) :
         else:
           tableElement[i+1] = "bgcolor=#FF0000"
       homepage_params = {
-      'name' : username,
+      'name' : user.nickname(),
       'courseNames': courseNames,
       'courseCredits': courseCredits,
       'courseId': courseId,
@@ -229,13 +180,10 @@ class Homepage(webapp2.RequestHandler) :
       render_template(self, 'homepage.html', homepage_params)
 
 app = webapp2.WSGIApplication([
-  ('/', LogIn),
-  ('/home', MainPage),
-  ('/welcome', Welcome),
+  ('/', MainPage),
   ('/settings', Settings),
   ('/courses', Courses),
   ('/homepage', Homepage),
   ('/CourseSelect', CourseSelect),
-  ('/homepage', Homepage)
 ])
 
