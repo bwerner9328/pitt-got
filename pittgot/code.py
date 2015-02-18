@@ -120,7 +120,6 @@ class CourseSelect(webapp2.RequestHandler) :
       courseId = {}
       tableElement = {}
       addCourse = self.request.get('courseCompleted')
-      grade = self.request.get('courseGrade')
 
       i = 0
       for row in courseList:
@@ -130,9 +129,7 @@ class CourseSelect(webapp2.RequestHandler) :
           for e in courses_taken:
             if(len(e.classTaken) != 40):
               e.classTaken = [False]*40
-            if(e.classTaken[i-1] == False):
-              e.classTaken[i-1] = True
-              userclassestaken = e.gradProgress
+            e.classTaken[i-1] = True
             db.put(e)
         i = i+1
 
@@ -197,7 +194,8 @@ class Homepage(webapp2.RequestHandler) :
       'courseCredits': courseCredits,
       'courseId': courseId,
       'classTaken': tableElement,
-      'graduationProgress': p.gradProgress
+      'graduationProgress': p.gradProgress,
+      'debug': userclassestaken
       }
       render_template(self, 'homepage.html', homepage_params)
 
