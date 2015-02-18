@@ -38,7 +38,6 @@ class MainPage(webapp2.RequestHandler):
         if q.get(): #checks if email is in database.
           main_params = {
           "name" : user.nickname(),
-          "graduationProgress" : q.gradProgress
           }
           render_template(self, 'main.html', main_params)
         else :
@@ -133,7 +132,6 @@ class CourseSelect(webapp2.RequestHandler) :
               e.classTaken = [False]*40
             if(e.classTaken[i-1] == False):
               e.classTaken[i-1] = True
-              e.classTakenGrade[i-1] = grade
               userclassestaken = e.gradProgress
             db.put(e)
         i = i+1
