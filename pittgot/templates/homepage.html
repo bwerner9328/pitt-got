@@ -5,10 +5,21 @@
   <body>
   	{% include "mainpage-v2.html" %}
     <div id="section">
-    Homepage.<br>
-    Hello, {{name}}.
-    <br><br>
-    Green fields are classes you have taken. Red fields are classes you still need to take.<br><br>
+    Hi {{name}}!<br>
+    <table border="2">
+      <tr>
+        <td bgcolor = "#00FF00">
+        Classes you have taken.
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor = "#FF0000">
+        Classes you still need to take.
+        </td>
+      </tr>
+    </table>
+
+    <br>
 
     {% include "table.html" %}
     </div>
