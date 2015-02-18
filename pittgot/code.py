@@ -116,6 +116,8 @@ class CourseSelect(webapp2.RequestHandler) :
         if courseNames[i] == addCourse :
           courses_taken = db.GqlQuery("SELECT * FROM Users WHERE email = :email", email=user.email())
           for e in courses_taken:
+            if(len(e.classTaken) != 40):
+              e.classTaken = [False]*40
             e.classTaken[i-1] = True
             db.put(e)
         i = i+1
@@ -184,3 +186,4 @@ app = webapp2.WSGIApplication([
   ('/homepage', Homepage),
   ('/CourseSelect', CourseSelect),
 ])
+
