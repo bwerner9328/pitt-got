@@ -7,134 +7,15 @@ import datetime
 from google.appengine.ext import db
 from google.appengine.api import users
 from google.appengine.ext.webapp import template
+from login import Login
+from logout import Logout
+from cover import Cover
+from settings import Settings
 
-username = ""
-useremail = ""
-usermajor = ""
-
-def render_template(handler, templatename, templatevalues) :
-  path = os.path.join(os.path.dirname(__file__), 'templates/' + templatename)
-  html = template.render(path, templatevalues)
-  handler.response.out.write(html)
-
-#The data storage for user info
-class Users(db.Model) :
-  name = db.StringProperty(required=True)
-  email = db.StringProperty(required=True)
-  password = db.StringProperty(required=True)
-  major = db.StringProperty(required=True)
-  
-#The first page they come to. Log in page.
-class LogIn(webapp2.RequestHandler) :
-  def get(self) :
-    template_params = {
-    
-    }
-    render_template(self, 'index.html', template_params)
-	
-#Page they get on if they are already registered and logged in.
-class MainPage(webapp2.RequestHandler) :
-  def post(self) :
-    q = Users.all()
-    q.filter("email =", self.request.get('emaillogin'))
-    if q.get(): #checks if username is in database.
-    	q.filter("password =", self.request.get('passwordlogin'))
-    	if q.get(): #checks if password is in database.
-    		for p in q.run (limit=1):
-    			global username
-    			global useremail
-    			global usermajor
-    			username = p.name
-    			useremail = p.email
-    			password = p.password
-    			usermajor = p.major
-    		main_params = {
-    		"name" : username
-    		}
-    		render_template(self, 'welcome.html', main_params)
-    	else : #if password incorrect.
-    		message = "Incorrect Log In Information."
-    		template_params = {
-    		"incorrectLogin" : message
-    		}
-    		render_template(self, 'index.html', template_params)
-    else : #if username is incorrect.
-    	message = "Incorrect Log In Information."
-    	template_params = {
-    	"incorrectLogin" : message,
-    	}
-    	render_template(self, 'index.html', template_params)
-
-class Welcome(webapp2.RequestHandler) :
-  def post(self) :
-    m = Users.all()
-    m.filter("email =", self.request.get('emailregister'))
-    if not m.get(): #if email not registered yet.
-    	if not self.request.get('nameregister') or not self.request.get('emailregister') or not self.request.get('passwordregister') :
-    		message = "Cannot have blank fields in your registration."
-    		template_params = {
-    		"registered" : message,
-    		}
-    		render_template(self, 'index.html', template_params)
-    	else :
-    		user = Users(name = self.request.get('nameregister'), email = self.request.get('emailregister'), password = self.request.get('passwordregister'), major = self.request.get('Major'))
-    		user.put()
-    		global username
-    		global useremail
-    		global usermajor
-    		username = user.name
-    		useremail = user.email
-    		usermajor = user.major
-    		welcome_params = {
-    		"name" : username
-    		}
-    		render_template(self, 'mainpage-v2.html', welcome_params)
-    else : #if email already registered.
-    	message = "That email has already been registered."
-    	template_params = {
-    	"registered" : message,
-    	}
-    	render_template(self, 'index.html', template_params)
-		
-class Settings(webapp2.RequestHandler) :
-    def get(self) :
-      settings_params = {
-      "name" : username
-      }
-      render_template(self, 'settings.html', settings_params)
-class Courses(webapp2.RequestHandler) :
-    def get(self):
-      courses_params = {
-      "name" : username
-      }
-      render_template(self, 'courses.html', courses_params)
-class Homepage(webapp2.RequestHandler) :
-    def get(self):
-
-      #file open
-      with open("computerengineering.csv", 'r') as csvfile:
-        csvreader = csv.reader(csvfile, dialect='excel')
-        courseList = list(csvreader)
- 
-        courseNames = {}
-      i = 0
-      for row in courseList:
-        courseNames[i] = row[1]
-        i = i+1
-
-
-      homepage_params = {
-      'name' : username,
-      'courseNames': courseNames
-      }
-      render_template(self, 'homepage.html', homepage_params)
-
-	  
 app = webapp2.WSGIApplication([
-  ('/', LogIn),
-  ('/home', MainPage),
-  ('/welcome', Welcome),
-  ('/settings', Settings),
-  ('/courses', Courses),
-  ('/homepage', Homepage)
+  ('/', Cover),
+  ('/main', Login),
+  ('/logout', Logout),
+  ('/settings', Settings)
 ])
+
