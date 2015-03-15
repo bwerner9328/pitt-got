@@ -34,6 +34,7 @@ body {
   background-color: #333;
 }
 body {
+<<<<<<< HEAD
   color: #FFF;
   text-align: center;
   text-shadow:
@@ -44,6 +45,12 @@ body {
        1px 1px 0 #000;
 
 
+=======
+  color: #fff;
+  text-align: center;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  /*text-shadow: 0 4px 6px #000;*/
+>>>>>>> master
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
