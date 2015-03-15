@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Pitt GOT</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../static/starter-template.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  {% include "mainpage-v3.html" %}
+    <div id="section">
+    <h3>Course Selection</h3><br>
+    Hello, {{name}}. Add a course you have completed by selecting its name and your final grade.
+	<form action = "/CourseSelect" method = "post">
+		<div id="SelectCourses">
+		<b>Course Name:</b>
+		<select name="courseCompleted">
+			<option value="{{courseNames.1}}">{{courseNames.1}}</option>
+			<option value="{{courseNames.2}}">{{courseNames.2}}</option>
+			<option value="{{courseNames.3}}">{{courseNames.3}}</option>
+			<option value="{{courseNames.4}}">{{courseNames.4}}</option>
+			<option value="{{courseNames.5}}">{{courseNames.5}}</option>
+			<option value="{{courseNames.6}}">{{courseNames.6}}</option>
+			<option value="{{courseNames.7}}">{{courseNames.7}}</option>
+			<option value="{{courseNames.8}}">{{courseNames.8}}</option>
+			<option value="{{courseNames.9}}">{{courseNames.9}}</option>
+			<option value="{{courseNames.10}}">{{courseNames.10}}</option>
+			<option value="{{courseNames.11}}">{{courseNames.11}}</option>
+			<option value="{{courseNames.12}}">{{courseNames.12}}</option>
+			<option value="{{courseNames.13}}">{{courseNames.13}}</option>
+			<option value="{{courseNames.14}}">{{courseNames.14}}</option>
+			<option value="{{courseNames.15}}">{{courseNames.15}}</option>
+			<option value="{{courseNames.16}}">{{courseNames.16}}</option>
+			<option value="{{courseNames.17}}">{{courseNames.17}}</option>
+			<option value="{{courseNames.18}}">{{courseNames.18}}</option>
+			<option value="{{courseNames.19}}">{{courseNames.19}}</option>
+			<option value="{{courseNames.20}}">{{courseNames.20}}</option>
+			<option value="{{courseNames.21}}">{{courseNames.21}}</option>
+			<option value="{{courseNames.22}}">{{courseNames.22}}</option>
+			<option value="{{courseNames.23}}">{{courseNames.23}}</option>
+			<option value="{{courseNames.24}}">{{courseNames.24}}</option>
+			<option value="{{courseNames.25}}">{{courseNames.25}}</option>
+			<option value="{{courseNames.26}}">{{courseNames.26}}</option>
+			<option value="{{courseNames.27}}">{{courseNames.27}}</option>
+			<option value="{{courseNames.28}}">{{courseNames.28}}</option>
+			<option value="{{courseNames.29}}">{{courseNames.29}}</option>
+			<option value="{{courseNames.30}}">{{courseNames.30}}</option>
+			<option value="{{courseNames.31}}">{{courseNames.31}}</option>
+			<option value="{{courseNames.32}}">{{courseNames.32}}</option>
+			<option value="{{courseNames.33}}">{{courseNames.33}}</option>
+			<option value="{{courseNames.34}}">{{courseNames.34}}</option>
+			<option value="{{courseNames.35}}">{{courseNames.35}}</option>
+			<option value="{{courseNames.36}}">{{courseNames.36}}</option>
+			<option value="{{courseNames.37}}">{{courseNames.37}}</option>
+			<option value="{{courseNames.38}}">{{courseNames.38}}</option>
+			<option value="{{courseNames.39}}">{{courseNames.39}}</option>
+			<option value="{{courseNames.40}}">{{courseNames.40}}</option>
+		</select>
+		<b>Course Grade:</b>
+		<select name="couseGrade">
+			<option value=4.00>A+</option>
+			<option value=4.00>A</option>
+			<option value=3.75>A-</option>
+			<option value=3.25>B+</option>
+			<option value=3.00>B</option>
+			<option value=2.75>B-</option>
+			<option value=2.25>C+</option>
+			<option value=2.00>C</option>
+			<option value=1.75>C-</option>
+			<option value=1.25>D+</option>
+			<option value=1.00>D</option>
+			<option value=0.75>D-</option>
+			<option value=0.00>F</option>
+		</select>
+		<input type="Submit" value="Submit Course"/>
+		</div>
+		</form>	
+    </div>
+</body>
+</html>
