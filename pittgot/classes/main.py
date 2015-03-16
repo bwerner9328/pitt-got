@@ -67,7 +67,7 @@ class Main(webapp2.RequestHandler):
         for i in range(40):
           if(userclassestaken):
             if(userclassestaken[i] == True):
-              tableElement[i+1] = "bgcolor=#00FF00"
+              tableElement[i+1] = "bgcolor=#00FF99"
               count = count = count +1
             else:
               tableElement[i+1] = "bgcolor=#FFF"

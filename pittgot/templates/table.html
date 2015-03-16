@@ -1,4 +1,19 @@
-<div class="CSSTableGenerator" >
+<script>
+function changeColor(id) { 
+	var current_color = id.style.backgroundColor;
+	if (current_color == "rgb(162, 237, 177)")
+	{
+		id.style.backgroundColor="#ffffff";
+    	//id.innerHTML = "First Click";
+	}    	
+	else 
+	{
+		id.style.backgroundColor="#a2edb1";
+		//id.innerHTML = "Second Click";
+	}
+}
+</script>
+<div class="CSSTableGenerator" >	
 <table border="1" >
 	<tr>
 		<td><pre>Freshman  1</pre></td>
@@ -11,54 +26,54 @@
 		<td><pre>Senior    2</pre></td>
 	</tr>
 	<tr>
-		<td {{classTaken.1}}>{{courseNames.1}} <br><br> {{courseId.1}} <br><br> {{courseCredits.1}} Credits</td>
-		<td {{classTaken.6}}>{{courseNames.6}} <br><br> {{courseId.6}} <br><br> {{courseCredits.6}} Credits</td>
-		<td {{classTaken.11}}>{{courseNames.11}} <br><br> {{courseId.11}} <br><br> {{courseCredits.11}} Credits</td>
-		<td {{classTaken.16}}>{{courseNames.16}} <br><br> {{courseId.16}} <br><br> {{courseCredits.16}} Credits</td>
-		<td {{classTaken.21}}>{{courseNames.21}} <br><br> {{courseId.21}} <br><br> {{courseCredits.21}} Credits</td>
-		<td {{classTaken.26}}>{{courseNames.26}} <br><br> {{courseId.26}} <br><br> {{courseCredits.26}} Credits</td>
-		<td {{classTaken.31}}>{{courseNames.31}} <br><br> {{courseId.31}} <br><br> {{courseCredits.31}} Credits</td>
-		<td {{classTaken.36}}>{{courseNames.36}} <br><br> {{courseId.36}} <br><br> {{courseCredits.36}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.1}}>{{courseNames.1}} <br><br> {{courseId.1}} <br><br> {{courseCredits.1}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.6}}>{{courseNames.6}} <br><br> {{courseId.6}} <br><br> {{courseCredits.6}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.11}}>{{courseNames.11}} <br><br> {{courseId.11}} <br><br> {{courseCredits.11}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.16}}>{{courseNames.16}} <br><br> {{courseId.16}} <br><br> {{courseCredits.16}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.21}}>{{courseNames.21}} <br><br> {{courseId.21}} <br><br> {{courseCredits.21}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.26}}>{{courseNames.26}} <br><br> {{courseId.26}} <br><br> {{courseCredits.26}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.31}}>{{courseNames.31}} <br><br> {{courseId.31}} <br><br> {{courseCredits.31}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.36}}>{{courseNames.36}} <br><br> {{courseId.36}} <br><br> {{courseCredits.36}} Credits</td>
 	</tr>
 	<tr>
-		<td {{classTaken.2}}>{{courseNames.2}} <br><br> {{courseId.2}} <br><br> {{courseCredits.2}} Credits</td>
-		<td {{classTaken.7}}>{{courseNames.7}} <br><br> {{courseId.7}} <br><br> {{courseCredits.7}} Credits</td>
-		<td {{classTaken.12}}>{{courseNames.12}} <br><br> {{courseId.12}} <br><br> {{courseCredits.12}} Credits</td>
-		<td {{classTaken.17}}>{{courseNames.17}} <br><br> {{courseId.17}} <br><br> {{courseCredits.17}} Credits</td>
-		<td {{classTaken.22}}>{{courseNames.22}} <br><br> {{courseId.22}} <br><br> {{courseCredits.22}} Credits</td>
-		<td {{classTaken.27}}>{{courseNames.27}} <br><br> {{courseId.27}} <br><br> {{courseCredits.27}} Credits</td>
-		<td {{classTaken.32}}>{{courseNames.32}} <br><br> {{courseId.32}} <br><br> {{courseCredits.32}} Credits</td>
-		<td {{classTaken.37}}>{{courseNames.37}} <br><br> {{courseId.37}} <br><br> {{courseCredits.37}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.2}}>{{courseNames.2}} <br><br> {{courseId.2}} <br><br> {{courseCredits.2}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.7}}>{{courseNames.7}} <br><br> {{courseId.7}} <br><br> {{courseCredits.7}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.12}}>{{courseNames.12}} <br><br> {{courseId.12}} <br><br> {{courseCredits.12}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.17}}>{{courseNames.17}} <br><br> {{courseId.17}} <br><br> {{courseCredits.17}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.22}}>{{courseNames.22}} <br><br> {{courseId.22}} <br><br> {{courseCredits.22}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.27}}>{{courseNames.27}} <br><br> {{courseId.27}} <br><br> {{courseCredits.27}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.32}}>{{courseNames.32}} <br><br> {{courseId.32}} <br><br> {{courseCredits.32}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.37}}>{{courseNames.37}} <br><br> {{courseId.37}} <br><br> {{courseCredits.37}} Credits</td>
 	</tr>
 	<tr>
-		<td {{classTaken.3}}>{{courseNames.3}} <br><br> {{courseId.3}} <br><br> {{courseCredits.3}} Credits</td>
-		<td {{classTaken.8}}>{{courseNames.8}} <br><br> {{courseId.8}} <br><br> {{courseCredits.8}} Credits</td>
-		<td {{classTaken.13}}>{{courseNames.13}} <br><br> {{courseId.13}} <br><br> {{courseCredits.13}} Credits</td>
-		<td {{classTaken.18}}>{{courseNames.18}} <br><br> {{courseId.18}} <br><br> {{courseCredits.18}} Credits</td>
-		<td {{classTaken.23}}>{{courseNames.23}} <br><br> {{courseId.23}} <br><br> {{courseCredits.23}} Credits</td>
-		<td {{classTaken.28}}>{{courseNames.28}} <br><br> {{courseId.28}} <br><br> {{courseCredits.28}} Credits</td>
-		<td {{classTaken.33}}>{{courseNames.33}} <br><br> {{courseId.33}} <br><br> {{courseCredits.33}} Credits</td>
-		<td {{classTaken.38}}>{{courseNames.38}} <br><br> {{courseId.38}} <br><br> {{courseCredits.38}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.3}}>{{courseNames.3}} <br><br> {{courseId.3}} <br><br> {{courseCredits.3}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.8}}>{{courseNames.8}} <br><br> {{courseId.8}} <br><br> {{courseCredits.8}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.13}}>{{courseNames.13}} <br><br> {{courseId.13}} <br><br> {{courseCredits.13}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.18}}>{{courseNames.18}} <br><br> {{courseId.18}} <br><br> {{courseCredits.18}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.23}}>{{courseNames.23}} <br><br> {{courseId.23}} <br><br> {{courseCredits.23}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.28}}>{{courseNames.28}} <br><br> {{courseId.28}} <br><br> {{courseCredits.28}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.33}}>{{courseNames.33}} <br><br> {{courseId.33}} <br><br> {{courseCredits.33}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.38}}>{{courseNames.38}} <br><br> {{courseId.38}} <br><br> {{courseCredits.38}} Credits</td>
 	</tr>
 	<tr>
-		<td {{classTaken.4}}>{{courseNames.4}} <br><br> {{courseId.4}} <br><br> {{courseCredits.4}} Credits</td>
-		<td {{classTaken.9}}>{{courseNames.9}} <br><br> {{courseId.9}} <br><br> {{courseCredits.9}} Credits</td>
-		<td {{classTaken.14}}>{{courseNames.14}} <br><br> {{courseId.14}} <br><br> {{courseCredits.14}} Credits</td>
-		<td {{classTaken.19}}>{{courseNames.19}} <br><br> {{courseId.19}} <br><br> {{courseCredits.19}} Credits</td>
-		<td {{classTaken.24}}>{{courseNames.24}} <br><br> {{courseId.24}} <br><br> {{courseCredits.24}} Credits</td>
-		<td {{classTaken.29}}>{{courseNames.29}} <br><br> {{courseId.29}} <br><br> {{courseCredits.29}} Credits</td>
-		<td {{classTaken.34}}>{{courseNames.34}} <br><br> {{courseId.34}} <br><br> {{courseCredits.34}} Credits</td>
-		<td {{classTaken.39}}>{{courseNames.39}} <br><br> {{courseId.39}} <br><br> {{courseCredits.39}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.4}}>{{courseNames.4}} <br><br> {{courseId.4}} <br><br> {{courseCredits.4}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.9}}>{{courseNames.9}} <br><br> {{courseId.9}} <br><br> {{courseCredits.9}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.14}}>{{courseNames.14}} <br><br> {{courseId.14}} <br><br> {{courseCredits.14}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.19}}>{{courseNames.19}} <br><br> {{courseId.19}} <br><br> {{courseCredits.19}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.24}}>{{courseNames.24}} <br><br> {{courseId.24}} <br><br> {{courseCredits.24}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.29}}>{{courseNames.29}} <br><br> {{courseId.29}} <br><br> {{courseCredits.29}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.34}}>{{courseNames.34}} <br><br> {{courseId.34}} <br><br> {{courseCredits.34}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.39}}>{{courseNames.39}} <br><br> {{courseId.39}} <br><br> {{courseCredits.39}} Credits</td>
 	</tr>
 	<tr>
-		<td {{classTaken.5}}>{{courseNames.5}} <br><br> {{courseId.5}} <br><br> {{courseCredits.5}} Credits</td>
-		<td {{classTaken.10}}>{{courseNames.10}} <br><br> {{courseId.10}} <br><br> {{courseCredits.10}} Credits</td>
-		<td {{classTaken.15}}>{{courseNames.15}} <br><br> {{courseId.15}} <br><br> {{courseCredits.15}} Credits</td>
-		<td {{classTaken.20}}>{{courseNames.20}} <br><br> {{courseId.20}} <br><br> {{courseCredits.20}} Credits</td>
-		<td {{classTaken.25}}>{{courseNames.25}} <br><br> {{courseId.25}} <br><br> {{courseCredits.25}} Credits</td>
-		<td {{classTaken.30}}>{{courseNames.30}} <br><br> {{courseId.30}} <br><br> {{courseCredits.30}} Credits</td>
-		<td {{classTaken.35}}>{{courseNames.35}} <br><br> {{courseId.35}} <br><br> {{courseCredits.35}} Credits</td>
-		<td {{classTaken.40}}>{{courseNames.40}} <br><br> {{courseId.40}} <br><br> {{courseCredits.40}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.5}}>{{courseNames.5}} <br><br> {{courseId.5}} <br><br> {{courseCredits.5}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.10}}>{{courseNames.10}} <br><br> {{courseId.10}} <br><br> {{courseCredits.10}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.15}}>{{courseNames.15}} <br><br> {{courseId.15}} <br><br> {{courseCredits.15}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.20}}>{{courseNames.20}} <br><br> {{courseId.20}} <br><br> {{courseCredits.20}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.25}}>{{courseNames.25}} <br><br> {{courseId.25}} <br><br> {{courseCredits.25}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.30}}>{{courseNames.30}} <br><br> {{courseId.30}} <br><br> {{courseCredits.30}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.35}}>{{courseNames.35}} <br><br> {{courseId.35}} <br><br> {{courseCredits.35}} Credits</td>
+		<td onclick="changeColor(this)" {{classTaken.40}}>{{courseNames.40}} <br><br> {{courseId.40}} <br><br> {{courseCredits.40}} Credits</td>
 	</tr>
 </table>
 </div>
@@ -111,7 +126,7 @@ CSSTableGenerator {
 }.CSSTableGenerator tr:hover td{
 	
 }
-.CSSTableGenerator tr:nth-child(odd){ background-color:#56aaff; }
+.CSSTableGenerator tr:nth-child(odd){ background-color:#ffffff; }
 .CSSTableGenerator tr:nth-child(even)    { background-color:#ffffff; }.CSSTableGenerator td{
 	vertical-align:middle;	
 	border:1px solid #000000;
