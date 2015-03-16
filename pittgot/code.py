@@ -7,7 +7,7 @@ import datetime
 from google.appengine.ext import db
 from google.appengine.api import users
 from google.appengine.ext.webapp import template
-from classes.login import Login
+from classes.main import Main
 from classes.logout import Logout
 from classes.cover import Cover
 from classes.settings import Settings
@@ -16,7 +16,7 @@ from classes.profile import Profile
 
 app = webapp2.WSGIApplication([
   ('/', Cover),
-  ('/main', Login),
+  ('/main', Main),
   ('/logout', Logout),
   ('/settings', Settings),
   ('/courses', Courses),

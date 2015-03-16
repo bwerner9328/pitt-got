@@ -31,3 +31,13 @@ class Cover(webapp2.RequestHandler):
     else:
     	cover_params = {}
     	render_template(self, 'coverpage.html', cover_params)
+
+  def post(self):
+    user = users.get_current_user()
+    falseBoolList = [False] * 40
+    regUser = Student(email = user.email(), major = self.request.get('Major'), classTaken = falseBoolList, gpa = float(self.request.get('GPA')), creditsTaken = int(self.request.get('creditsTaken')))
+    regUser.put()
+    main_params = {
+      "name" : user.nickname()
+    }
+    render_template(self, 'courses.html', main_params)
