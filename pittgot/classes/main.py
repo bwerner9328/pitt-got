@@ -30,63 +30,69 @@ class Main(webapp2.RequestHandler):
     if(user):
       q = Student.all()
       q.filter("email =", user.email())
-      for p in q.run(limit=1):
-        usermajor = p.major
+      if q.get():
+        for p in q.run(limit=1):
+          usermajor = p.major
 
-      majorCourses = usermajor.lower()
-      majorCourses = majorCourses.replace(" ", "")
-      majorCourses = majorCourses + ".csv"
+        majorCourses = usermajor.lower()
+        majorCourses = majorCourses.replace(" ", "")
+        majorCourses = majorCourses + ".csv"
 
-      if(majorCourses == ".csv"):
-        majorCourses = "computerengineering.csv"
+        if(majorCourses == ".csv"):
+          majorCourses = "computerengineering.csv"
       
-      #file open
-      with open(majorCourses, 'r') as csvfile:
-        csvreader = csv.reader(csvfile, dialect='excel')
-        courseList = list(csvreader)
+        #file open
+        with open(majorCourses, 'r') as csvfile:
+          csvreader = csv.reader(csvfile, dialect='excel')
+          courseList = list(csvreader)
     
-      courseNames = {}
-      courseCredits = {}
-      courseId = {}
-      tableElement = {}
+        courseNames = {}
+        courseCredits = {}
+        courseId = {}
+        tableElement = {}
 
-      i = 0
-      for row in courseList:
-        courseNames[i] = row[0]
-        courseId[i] = row[1]
-        courseCredits[i] = row[2]
-        i = i+1
-      q = Student.all()
-      q.filter("email =", user.email())
-      for p in q.run(limit=1):
-        userclassestaken = p.classTaken
-        cur_user = p
+        i = 0
+        for row in courseList:
+          courseNames[i] = row[0]
+          courseId[i] = row[1]
+          courseCredits[i] = row[2]
+          i = i+1
+        q = Student.all()
+        q.filter("email =", user.email())
+        for p in q.run(limit=1):
+          userclassestaken = p.classTaken
+          cur_user = p
 
-      count = 0
-      for i in range(40):
-        if(userclassestaken):
-          if(userclassestaken[i] == True):
-            tableElement[i+1] = "bgcolor=#00FF00"
-            count = count = count +1
+        count = 0
+        for i in range(40):
+          if(userclassestaken):
+            if(userclassestaken[i] == True):
+              tableElement[i+1] = "bgcolor=#00FF00"
+              count = count = count +1
+            else:
+              tableElement[i+1] = "bgcolor=#FFF"
           else:
             tableElement[i+1] = "bgcolor=#FFF"
-        else:
-          tableElement[i+1] = "bgcolor=#FFF"
 
-      cur_user.gradProgress = 100*count/40
-      cur_user.put()
+        cur_user.gradProgress = 100*count/40
+        cur_user.put()
 
 
-      homepage_params = {
-      'name' : user.nickname(),
-      'courseNames': courseNames,
-      'courseCredits': courseCredits,
-      'courseId': courseId,
-      'classTaken': tableElement,
-      'graduationProgress': 0,
-      'debug': userclassestaken
-      }
-      render_template(self, 'main.html', homepage_params)
+        homepage_params = {
+        'name' : user.nickname(),
+        'courseNames': courseNames,
+        'courseCredits': courseCredits,
+        'courseId': courseId,
+        'classTaken': tableElement,
+        'graduationProgress': 0,
+        'debug': userclassestaken
+        }
+        render_template(self, 'main.html', homepage_params)
+      else:
+          welcome_params = {
+          "name" : user.nickname()
+          }
+          render_template(self, 'welcome.html', welcome_params)
     else:
       self.redirect(users.create_login_url(self.request.uri))
 
