@@ -20,14 +20,19 @@ class Main(webapp2.RequestHandler):
     userclassestaken = {}
 
     user = users.get_current_user()
-    q = Student.all()
-    q.filter("email =", user.email())
-    if user:
+
+    courseNames = {}
+    courseCredits = {}
+    courseId = {}
+    tableElement = {}
+
+
+    if(user):
+      q = Student.all()
+      q.filter("email =", user.email())
       for p in q.run(limit=1):
         usermajor = p.major
-        userclassestaken = p.classTaken
-        cur_user = p
-      
+
       majorCourses = usermajor.lower()
       majorCourses = majorCourses.replace(" ", "")
       majorCourses = majorCourses + ".csv"
@@ -51,7 +56,11 @@ class Main(webapp2.RequestHandler):
         courseId[i] = row[1]
         courseCredits[i] = row[2]
         i = i+1
-
+      q = Student.all()
+      q.filter("email =", user.email())
+      for p in q.run(limit=1):
+        userclassestaken = p.classTaken
+        cur_user = p
 
       count = 0
       for i in range(40):
@@ -64,8 +73,9 @@ class Main(webapp2.RequestHandler):
         else:
           tableElement[i+1] = "bgcolor=#FFF"
 
-      p.gradProgress = 100*count/40
-      p.put()
+      cur_user.gradProgress = 100*count/40
+      cur_user.put()
+
 
       homepage_params = {
       'name' : user.nickname(),
@@ -73,7 +83,7 @@ class Main(webapp2.RequestHandler):
       'courseCredits': courseCredits,
       'courseId': courseId,
       'classTaken': tableElement,
-      'graduationProgress': p.gradProgress,
+      'graduationProgress': 0,
       'debug': userclassestaken
       }
       render_template(self, 'main.html', homepage_params)
