@@ -12,8 +12,6 @@ import rendertemplate
 
 render_template = rendertemplate.render_template
 
-
-
 class Main(webapp2.RequestHandler):
   def get(self) :
     usermajor = "computerengineering"
@@ -67,7 +65,7 @@ class Main(webapp2.RequestHandler):
         for i in range(40):
           if(userclassestaken):
             if(userclassestaken[i] == True):
-              tableElement[i+1] = "bgcolor=#00FF00"
+              tableElement[i+1] = "bgcolor=#a2edb1"
               count = count = count +1
             else:
               tableElement[i+1] = "bgcolor=#FFF"
