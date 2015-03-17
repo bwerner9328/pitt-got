@@ -12,6 +12,9 @@ import rendertemplate
 import rendertable
 import logging
 
+import json
+
+
 render_template = rendertemplate.render_template
 render_table = rendertable.render_table
 global q
@@ -56,27 +59,28 @@ class Main(webapp2.RequestHandler):
     courseCredits = {}
     courseId = {}
     tableElement = {}
-    addCourse = self.request.get('courseCompleted')
-    i = 0
-    logging.info("user is %s", user.nickname())
-    logging.info("course completed: %s", addCourse)
-    for row in courseList:
-      courseNames[i] = row[0]
-      if courseNames[i] == addCourse :
-        courses_taken = db.GqlQuery("SELECT * FROM Student WHERE email = :email", email=user.email())
-        for e in courses_taken:
-          if(len(e.classTaken) != 40):
-            e.classTaken = [False]*40
-          e.classTaken[i-1] = True
-          logging.info("class is taken: %r", e.classTaken[i-1])
-          db.put(e)
-      i = i+1
-    courses_taken = db.GqlQuery("SELECT * FROM Student WHERE email = :email", email=user.email())
-    for e in courses_taken:
-      logging.info("class is taken: %r", e.classTaken[1])
+    # addCourse = self.request.get('courseCompleted')
+    temp = self.request.arguments().pop()
+    addCourses = temp.split("|")
+    logging.info("temp is %s", temp)
+
+    for addCourse in addCourses:      
+      i = 0
+      logging.info("user is %s", user.nickname())
+      logging.info("course completed: %s", addCourse)
+      for row in courseList:
+        courseNames[i] = row[0]
+        #logging.info("courseNames[i] is %s", courseNames[i])
+        if courseNames[i] == addCourse :
+          courses_taken = db.GqlQuery("SELECT * FROM Student WHERE email = :email", email=user.email())
+          for e in courses_taken:
+            if(len(e.classTaken) != 40):
+              e.classTaken = [False]*40
+            e.classTaken[i-1] = True
+            logging.info("class is taken: %r", e.classTaken[i-1])
+            db.put(e)
+        i = i+1
+      courses_taken = db.GqlQuery("SELECT * FROM Student WHERE email = :email", email=user.email())
+      for e in courses_taken:
+        logging.info("class is taken: %r", e.classTaken[1])
     render_table(self,q)
-
-    
-
-
-

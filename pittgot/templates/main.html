@@ -31,7 +31,11 @@
     <div id="section">
     <h3>Course Selection</h3><br>
     Hello, {{name}}. Add a course you have completed by selecting its name and your final grade.
-  <form action = "/main" method = "post">
+
+    
+
+
+  <form action = "/main" method = "post">    
     <div id="SelectCourses">
     <b>Course Name:</b>
     <select name="courseCompleted">
@@ -95,6 +99,9 @@
     <input type="Submit" value="Save Changes"/>
     </div>
     </form> 
+
+
+
     </div>
     <table border="2">
       <tr>
@@ -107,9 +114,7 @@
         Classes you still need to take.
         </td>
       </tr>
-    </table>
-
-    <br>
+    </table><br>
 
     {% include "table.html" %}
     </div>
