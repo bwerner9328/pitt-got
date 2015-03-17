@@ -1,0 +1,75 @@
+<html>
+<body>
+	
+<script src="/js/jquery-2.1.1.min.js"></script>
+<script src="/js/main_page.js"></script>
+
+<div id="info-display" class="flex col std-padding grow">
+			<!-- This is initially hidden -->
+			<div id="course-info-view" class="flex col">
+				<div id="course-name" class="flex row"></div>
+				<table class="flex row" width="100%" border="1">
+					<tr>
+						<td id="course-teacher"></td>
+						<td id="course-location"></td>
+						<td id="course-credits"></td>
+					</tr>
+					<tr>
+						<td id="course-class-number"></td>
+						<td id="course-term"></td>
+						<td id="course-type"></td>
+					</tr>
+					<tr>
+						<td id="course-days"></td>
+						<td id="course-start-time"></td>
+						<td id="course-end-time"></td>
+					</tr>
+				</table>
+				<div id="course-description" class="flex row"></div>
+			  <input type="submit" value="Close" onclick="showCalendarInformation()">
+			</div>
+			<div id="calendar-wrapper" class="flex row">
+				<div id="time-col" class="flex col">
+					<div class="header">
+						Time
+					</div>
+				</div>
+				<div id="monday-col" class="flex col calendar-col">
+					<div class="header">
+						Monday
+					</div>
+				</div>
+				<div id="tuesday-col" class="flex col calendar-col">
+					<div class="header">
+						Tuesday
+					</div>
+				</div>
+				<div id="wednesday-col" class="flex col calendar-col">
+					<div class="header">
+						Wednesday
+					</div>
+				</div>
+				<div id="thursday-col" class="flex col calendar-col">
+					<div class="header">
+						Thursday
+					</div>
+				</div>
+				<div id="friday-col" class="flex col calendar-col">
+					<div class="header">
+						Friday
+					</div>
+				</div>
+				<div id="saturday-col" class="flex col calendar-col">
+					<div class="header">
+						Saturday
+					</div>
+				</div>
+				<div id="sunday-col" class="flex col calendar-col">
+					<div class="header">
+						Sunday
+					</div>
+				</div>
+			</div>
+		</div>
+</body>
+</html>
