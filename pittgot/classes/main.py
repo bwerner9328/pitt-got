@@ -62,7 +62,7 @@ class Main(webapp2.RequestHandler):
     # addCourse = self.request.get('courseCompleted')
     temp = self.request.arguments().pop()
     addCourses = temp.split("|")
-    logging.info("temp is %s", temp)
+    # logging.info("temp is %s", temp)
 
     for addCourse in addCourses:      
       i = 0
