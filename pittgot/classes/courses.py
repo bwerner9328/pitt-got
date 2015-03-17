@@ -36,7 +36,7 @@ class Courses(webapp2.RequestHandler) :
       for row in courseList:
         courseNames[i] = row[0]
         i = i+1
-
+          
       courses_params = {
       'name' : user.nickname(),
       'courseNames': courseNames,

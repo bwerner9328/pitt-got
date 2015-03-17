@@ -9,8 +9,10 @@ from google.appengine.api import users
 from google.appengine.ext.webapp import template
 from classes.student import Student
 import rendertemplate
+import rendertable
 
 render_template = rendertemplate.render_template
+render_table = rendertable.render_table
 #The first page they come to. cover page
 class Cover(webapp2.RequestHandler):
   def get(self) :
@@ -19,10 +21,7 @@ class Cover(webapp2.RequestHandler):
       q = Student.all()
       q.filter("email =", user.email())
       if q.get(): #checks if email is in database.
-        main_params = {
-        "name" : user.nickname(),
-        }
-        render_template(self, 'main.html', main_params)
+        render_table(self, q)
       else :
         welcome_params = {
         "name" : user.nickname()
@@ -40,4 +39,4 @@ class Cover(webapp2.RequestHandler):
     main_params = {
       "name" : user.nickname()
     }
-    render_template(self, 'courses.html', main_params)
+    render_template(self, '.html', main_params)
