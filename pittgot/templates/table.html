@@ -27,18 +27,22 @@ function sendPostRequest() {
 }
 
 </script>
+<link href="../static/starter-template.css" rel="stylesheet">
 <div class="CSSTableGenerator">
-	<button type = "button" onclick="sendPostRequest()">Save ALL Changes</button>
+	<div class="wrapper">
+		<button type = "button" onclick="sendPostRequest()">Save ALL Changes</button>
+	</div>
+	<br>
 	<table border="1" >
 	<tr>
-		<td><pre>Freshman  1</pre></td>
-		<td><pre>Freshman  2</pre></td>
-		<td><pre>Sophomore 1</pre></td>
-		<td><pre>Sophomore 2</pre></td>
-		<td><pre>Junior    1</pre></td>
-		<td><pre>Junior    2</pre></td>
-		<td><pre>Senior    1</pre></td>
-		<td><pre>Senior    2</pre></td>
+		<td>Semester #1<br>Freshman 1</td>
+		<td>Semester #2<br>Freshman 2</td>
+		<td>Semester #3<br>Sophomore 1</td>
+		<td>Semester #4<br>Sophomore 2</td>
+		<td>Semester #5<br>Junior 1</td>
+		<td>Semester #6<br>Junior 2</td>
+		<td>Semester #7<br>Senior 1</td>
+		<td>Semester #8<br>Senior 2</td>
 	</tr>
 	<tr>
 		<td onclick="changeColor(this)" id = "Engineering Analysis" {{classTaken.1}}>{{courseNames.1}} <br><br> {{courseId.1}} <br><br> {{courseCredits.1}} Credits</td>
@@ -93,7 +97,7 @@ function sendPostRequest() {
 </table>
 </div>
 <style>
-CSSTableGenerator {
+.CSSTableGenerator {
 	margin:0px;padding:0px;
 	width:100%;
 	box-shadow: 10px 10px 5px #888888;
@@ -118,7 +122,7 @@ CSSTableGenerator {
     border-collapse: collapse;
         border-spacing: 0;
 	width:100%;
-	height:50%;
+	height:100%;
 	margin:0px;padding:0px;
 }.CSSTableGenerator tr:last-child td:last-child {
 	-moz-border-radius-bottomright:0px;
@@ -141,9 +145,11 @@ CSSTableGenerator {
 }.CSSTableGenerator tr:hover td{
 	
 }
-.CSSTableGenerator tr:nth-child(odd){ background-color:#ffffff; }
+.CSSTableGenerator tr:nth-child(odd){ background-color:#aad4ff; }
 .CSSTableGenerator tr:nth-child(even)    { background-color:#ffffff; }.CSSTableGenerator td{
-	vertical-align:middle;	
+	vertical-align:middle;
+	
+	
 	border:1px solid #000000;
 	border-width:0px 1px 1px 0px;
 	text-align:left;
@@ -160,25 +166,25 @@ CSSTableGenerator {
 	border-width:0px 0px 0px 0px;
 }
 .CSSTableGenerator tr:first-child td{
-		background:-o-linear-gradient(bottom, #00007f 5%, #003f7f 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #00007f), color-stop(1, #003f7f) );
-	background:-moz-linear-gradient( center top, #00007f 5%, #003f7f 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#00007f", endColorstr="#003f7f");	background: -o-linear-gradient(top,#00007f,003f7f);
+		background:-o-linear-gradient(bottom, #005fbf 5%, #003f7f 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #005fbf), color-stop(1, #003f7f) );
+	background:-moz-linear-gradient( center top, #005fbf 5%, #003f7f 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#005fbf", endColorstr="#003f7f");	background: -o-linear-gradient(top,#005fbf,003f7f);
 
-	background-color:#00007f;
+	background-color:#005fbf;
 	border:0px solid #000000;
 	text-align:center;
 	border-width:0px 0px 1px 1px;
-	font-size:30px;
+	font-size:14px;
 	font-family:Arial;
 	font-weight:bold;
 	color:#ffffff;
 }
 .CSSTableGenerator tr:first-child:hover td{
-	background:-o-linear-gradient(bottom, #00007f 5%, #003f7f 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #00007f), color-stop(1, #003f7f) );
-	background:-moz-linear-gradient( center top, #00007f 5%, #003f7f 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#00007f", endColorstr="#003f7f");	background: -o-linear-gradient(top,#00007f,003f7f);
+	background:-o-linear-gradient(bottom, #005fbf 5%, #003f7f 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #005fbf), color-stop(1, #003f7f) );
+	background:-moz-linear-gradient( center top, #005fbf 5%, #003f7f 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#005fbf", endColorstr="#003f7f");	background: -o-linear-gradient(top,#005fbf,003f7f);
 
-	background-color:#00007f;
+	background-color:#005fbf;
 }
 .CSSTableGenerator tr:first-child td:first-child{
 	border-width:0px 0px 1px 0px;
@@ -187,6 +193,3 @@ CSSTableGenerator {
 	border-width:0px 0px 1px 1px;
 }
 </style>
-</html>
- 
-           

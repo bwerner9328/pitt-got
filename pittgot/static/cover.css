@@ -113,6 +113,17 @@ body {
   }
 }
 
+.centertext{
+  width: 100%;
+  height: 100%; /* For at least Firefox */
+  min-height: 100%;
+  -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+          box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+  background: rgb(0, 0, 0); /* Fall-back for browsers that don't
+                                    support rgba */
+  background: rgba(0, 0, 0, .75);      
+
+}
 
 /*
  * Cover
@@ -136,7 +147,6 @@ body {
   color: rgba(255,255,255,.5);
 }
 
-
 /*
  * Affix and center
  */
@@ -154,6 +164,7 @@ body {
   /* Start the vertical centering */
   .site-wrapper-inner {
     vertical-align: middle;
+
   }
   /* Handle the widths */
   .masthead,
@@ -170,3 +181,5 @@ body {
     width: 700px;
   }
 }
+
+

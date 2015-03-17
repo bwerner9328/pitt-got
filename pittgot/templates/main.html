@@ -27,10 +27,8 @@
   <body>
   	{% include "mainpage-v3.html" %}
     <div id="section">
-    Hi {{name}}!<br>
-    <div id="section">
-    <h3>Course Selection</h3><br>
-    Hello, {{name}}. Add a course you have completed by selecting its name and your final grade.
+    <h1 align="center">Course Selection</h1><br>
+    Hello, {{name}}. 
 
     
 
@@ -103,7 +101,7 @@
 
 
     </div>
-    <table border="2">
+    <table align="center" border="2">
       <tr>
         <td bgcolor = "#a2edb1">
         Classes you have taken.
@@ -111,9 +109,8 @@
       </tr>
       <tr>
         <td bgcolor = "#FFF">
-        Classes you still need to take.
-        </td>
-      </tr>
+        Classes you need to take.
+      </td>
     </table><br>
 
     {% include "table.html" %}

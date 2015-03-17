@@ -1,5 +1,5 @@
 body {
-  padding-top: 100px;
+  padding-top: 30px;
   padding-bottom: 30px;
   margin:10px;
 
@@ -22,4 +22,12 @@ body {
 
 .theme-showcase .navbar .container {
   width: auto;
+}
+
+.wrapper {
+    text-align: center;
+}
+.button {
+    position: absolute:
+    top: 50%;
 }
