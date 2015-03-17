@@ -15,6 +15,7 @@ from classes.settings import Settings
 from classes.courses import Courses
 from classes.profile import Profile
 from classes.contact import Contact
+from classes.schedule import Schedule
 
 app = webapp2.WSGIApplication([
   ('/', Cover),
@@ -23,6 +24,7 @@ app = webapp2.WSGIApplication([
   ('/settings', Settings),
   ('/courses', Courses),
   ('/profile', Profile),
-  ('/contact', Contact)
+  ('/contact', Contact),
+  ('/schedule', Schedule),
 ])
 
