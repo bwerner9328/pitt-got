@@ -36,7 +36,9 @@ class Cover(webapp2.RequestHandler):
     falseBoolList = [False] * 40
     regUser = Student(email = user.email(), major = self.request.get('Major'), classTaken = falseBoolList, gpa = float(self.request.get('GPA')), creditsTaken = int(self.request.get('creditsTaken')))
     regUser.put()
-    main_params = {
-      "name" : user.nickname()
-    }
-    render_template(self, 'main.html', main_params)
+    user = users.get_current_user()
+    if(user):
+      q = Student.all()
+      q.filter("email =", user.email())
+      if q.get():
+        render_table(self, q)
