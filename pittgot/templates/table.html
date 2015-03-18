@@ -16,6 +16,11 @@ function changeColor(id) {
 		//id.innerHTML = id.id + "";
 		allChanges = allChanges + "|" + id.id;
 	}
+	var request = new XMLHttpRequest();	
+	request.open("POST","/main",true);
+	request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	//allCoursesChanged = "Engineering Analysis";
+	request.send(allChanges);
 
 }
 function sendPostRequest() {
@@ -29,9 +34,9 @@ function sendPostRequest() {
 </script>
 <link href="../static/bootstrap.min.css" rel="stylesheet">
 <link href="../static/starter-template.css" rel="stylesheet">
-	<div class="wrapper">
+<!--	<div class="wrapper">
 		<button type = "button" class="btn btn-lg btn-success" onclick="sendPostRequest()">Save ALL Changes</button>
-	</div><br>
+	</div><br>-->
 <div class="CSSTableGenerator">
 	
 	<table border="1" >

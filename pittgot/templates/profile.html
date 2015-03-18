@@ -24,26 +24,10 @@
 
   <body>
   {% include "mainpage-v3.html" %}
-    <div id="section"><br>
-          <label>Settings</label> <br>
-          Change your profile picture:
-          <form action="/sign?%s" enctype="multipart/form-data" method="post">
-            <div><input type="file" name="img"/></div>
-            <div><input type="submit" value="Upload"></div>
-          </form>
-          <form action = "/settings" method = "post">
-            If you would like to resubmit your major, GPA, and credits taken then please enter them below.<br>
-            <select name="Major">
-              <option value="Computer Science">Computer Science</option>
-              <option value="Computer Engineering">Computer Engineering</option>
-            </select><br><br>
-            GPA.
-            <input type="number" name="GPA" min="0" max="4" step="any" value="0.0"> <br><br>
-            Credits Taken.
-            <input type="number" name="creditsTaken" min="0" value="0">
-            <input type="Submit" value="Register"/>
-          </form>
+    <div id="section">
+    {% include "profilepic.html" %}
     </div>
+ 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -53,6 +37,3 @@
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
-
- 
-

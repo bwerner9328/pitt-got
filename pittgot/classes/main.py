@@ -66,8 +66,6 @@ class Main(webapp2.RequestHandler):
 
     for addCourse in addCourses:      
       i = 0
-      logging.info("user is %s", user.nickname())
-      logging.info("course completed: %s", addCourse)
       for row in courseList:
         courseNames[i] = row[0]
         #logging.info("courseNames[i] is %s", courseNames[i])
@@ -76,8 +74,11 @@ class Main(webapp2.RequestHandler):
           for e in courses_taken:
             if(len(e.classTaken) != 40):
               e.classTaken = [False]*40
-            e.classTaken[i-1] = True
-            logging.info("class is taken: %r", e.classTaken[i-1])
+            if e.classTaken[i-1] == False:
+              e.classTaken[i-1] = True
+            else:
+              e.classTaken[i-1] = False
+            logging.info("on or off: %r", e.classTaken[i-1]) 
             db.put(e)
         i = i+1
       courses_taken = db.GqlQuery("SELECT * FROM Student WHERE email = :email", email=user.email())

@@ -28,8 +28,8 @@ class Cover(webapp2.RequestHandler):
         }
         render_template(self, 'welcome.html', welcome_params)
     else:
-    	cover_params = {}
-    	render_template(self, 'coverpage.html', cover_params)
+      cover_params = {}
+      render_template(self, 'coverpage.html', cover_params)
 
   def post(self):
     user = users.get_current_user()
@@ -39,4 +39,4 @@ class Cover(webapp2.RequestHandler):
     main_params = {
       "name" : user.nickname()
     }
-    render_template(self, '.html', main_params)
+    render_template(self, 'main.html', main_params)
