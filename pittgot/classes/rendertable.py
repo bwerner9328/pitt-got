@@ -51,12 +51,12 @@ def render_table(self, q):
         for i in range(40):
           if(userclassestaken):
             if(userclassestaken[i] == True):
-              tableElement[i+1] = "bgcolor=#a2edb1"
+              tableElement[i+1] = "#a2edb1"
               count = count = count +1
             else:
-              tableElement[i+1] = "bgcolor=#FFF"
+              tableElement[i+1] = "#ffffff"
           else:
-            tableElement[i+1] = "bgcolor=#FFF"
+            tableElement[i+1] = "#ffffff"
 
         cur_user.gradProgress = 100*count/40
         cur_user.put()
