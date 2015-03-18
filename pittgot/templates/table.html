@@ -1,35 +1,41 @@
 <html>
 <script>
 
-var allChanges = "";
+//var allChanges = "";
 
 function changeColor(id) { 
-	var current_color = id.style.backgroundColor;
-	if (current_color == "rgb(162, 237, 177)")
+	//var current_color = ;
+	var allChanges = "";
+
+	if (id.style.backgroundColor == "rgb(162, 237, 177)") 
 	{
 		id.style.backgroundColor="#ffffff";
     	//id.innerHTML = id.id + "";
-	}    	
+    	//allChanges = id.id;
+	}   
+
 	else 
 	{
 		id.style.backgroundColor="#a2edb1";
 		//id.innerHTML = id.id + "";
-		allChanges = allChanges + "|" + id.id;
+		//allChanges = allChanges + "|" + id.id;
+		//allChanges = id.id;
 	}
+
+	allChanges = id.id;
 	var request = new XMLHttpRequest();	
 	request.open("POST","/main",true);
 	request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	//allCoursesChanged = "Engineering Analysis";
 	request.send(allChanges);
-
 }
-function sendPostRequest() {
-		var request = new XMLHttpRequest();	
-		request.open("POST","/main",true);
-		request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-		//allCoursesChanged = "Engineering Analysis";
-		request.send(allChanges);
-}
+// function sendPostRequest() {
+// 		var request = new XMLHttpRequest();	
+// 		request.open("POST","/main",true);
+// 		request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+// 		//allCoursesChanged = "Engineering Analysis";
+// 		request.send(allChanges);
+// }
 
 </script>
 <link href="../static/bootstrap.min.css" rel="stylesheet">
