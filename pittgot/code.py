@@ -4,9 +4,12 @@ import os
 import csv
 import webapp2
 import datetime
+import urllib
 from google.appengine.ext import db
 from google.appengine.api import users
 from google.appengine.api import mail
+from google.appengine.api import images
+from google.appengine.ext import blobstore
 from google.appengine.ext.webapp import template
 from classes.main import Main
 from classes.logout import Logout
@@ -16,6 +19,7 @@ from classes.courses import Courses
 from classes.profile import Profile
 from classes.contact import Contact
 from classes.schedule import Schedule
+from classes.storeimg import StoreImg
 
 app = webapp2.WSGIApplication([
   ('/', Cover),
@@ -25,6 +29,7 @@ app = webapp2.WSGIApplication([
   ('/courses', Courses),
   ('/profile', Profile),
   ('/contact', Contact),
-  ('/schedule', Schedule),
+  ('/sign', StoreImg),
+  ('/schedule', Schedule)
 ])
 
