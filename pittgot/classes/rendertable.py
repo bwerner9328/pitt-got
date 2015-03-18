@@ -68,7 +68,7 @@ def render_table(self, q):
         'courseCredits': courseCredits,
         'courseId': courseId,
         'classTaken': tableElement,
-        'graduationProgress': 0,
+        'graduationProgress': cur_user.gradProgress,
         'debug': userclassestaken
         }
         render_template(self, 'main.html', homepage_params)

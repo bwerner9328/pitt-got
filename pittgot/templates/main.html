@@ -26,6 +26,29 @@
 
   <body>
   	{% include "mainpage-v3.html" %}
+    <br>
+   
+    <h3 align="center">Your progress towards graduation!</h3>
+    
+    
+      <div class="progress">
+    <style type="text/css">
+      .progress {
+        position:relative;
+      }
+      .progress span {
+      position:absolute;
+      left:0;
+      width:100%;
+      text-align:center;
+      z-index:2;
+      color:black;
+      }
+   </style>
+    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{graduationProgress}}%">
+    <span class="progress-value">{{graduationProgress}}%</span>
+    </div>
+  </div>
     <div id="section">
     <h1 align="center">Course Selection</h1><br>
     Hello, {{name}}. 
