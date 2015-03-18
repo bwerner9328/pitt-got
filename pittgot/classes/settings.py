@@ -11,9 +11,10 @@ from google.appengine.ext import blobstore
 from google.appengine.ext.webapp import template
 from student import Student
 import rendertemplate
+import rendertable
 
 render_template = rendertemplate.render_template
-
+render_table = rendertable.render_table
 
 class Settings(webapp2.RequestHandler) :
     def get(self) :
@@ -23,22 +24,24 @@ class Settings(webapp2.RequestHandler) :
       for p in q.run(limit=1):
         usermajor = p.major
         cur_user = p
-      
-      self.response.out.write("""<html><body>
-          <div id="section"><br>
-          <label>Settings</label> <br>
-          Change your profile picture:
-          </div>
-          <form action="/sign?%s" enctype="multipart/form-data" method="post">
-            <div><input type="file" name="img"/></div>
-            <div><input type="submit" value="Upload"></div>
-          </form>
-          </body>
-        </html>""")
-
 
       settings_params = {
       "name" : user.nickname(),
       'graduationProgress': 70
       }
       render_template(self, 'settings.html', settings_params)
+
+    def post(self) :
+      user = users.get_current_user()
+      falseBoolList = [False] * 40
+      result = db.GqlQuery("SELECT * FROM Student WHERE email = :email", email=user.email())
+      if result:
+        for r in result:
+          r.major = self.request.get('Major')
+          r.classTaken = falseBoolList
+          r.gpa = float(self.request.get('GPA'))
+          r.creditsTaken = int(self.request.get('creditsTaken'))
+          db.put(r)
+        q = Student.all()
+        q.filter("email =", user.email())
+        render_table(self, q)
