@@ -33,6 +33,6 @@ class Profile(webapp2.RequestHandler) :
 
       profile_params = {
       "name" : user.nickname(),
-      'graduationProgress': 70
+      'graduationProgress': cur_user.gradProgress,
       }
       render_template(self, 'profilepic.html', profile_params)
