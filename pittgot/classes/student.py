@@ -4,8 +4,11 @@ import os
 import csv
 import webapp2
 import datetime
+import urllib
 from google.appengine.ext import db
 from google.appengine.api import users
+from google.appengine.api import images
+from google.appengine.ext import blobstore
 from google.appengine.ext.webapp import template
 import rendertemplate
 
@@ -19,3 +22,5 @@ class Student(db.Model) :
   creditsTaken = db.IntegerProperty()
   gradProgress = db.IntegerProperty()
   classTakenGrade = db.ListProperty(str)
+  avatar = db.BlobProperty()
+

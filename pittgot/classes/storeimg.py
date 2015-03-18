@@ -15,24 +15,21 @@ import rendertemplate
 
 render_template = rendertemplate.render_template
 
-
-class Profile(webapp2.RequestHandler) :
-    def get(self) :
+class StoreImg(webapp2.RequestHandler) :
+    def post(self) :
       user = users.get_current_user()
       q = Student.all()
       q.filter("email =", user.email())
       for p in q.run(limit=1):
         usermajor = p.major
         cur_user = p
-      
-      if p.avatar:
-        self.response.headers['Content-Type'] = 'image/png'
-        self.response.out.write(p.avatar)
-      else:
-        self.response.out.write('No image')
 
-      profile_params = {
-      "name" : user.nickname(),
-      'graduationProgress': 70
-      }
-      render_template(self, 'profilepic.html', profile_params)
+      # Get image data
+      avatar = self.request.get('img')
+      # Transform the image
+      #avatar = images.resize(avatar, 32, 32)
+      p.avatar = avatar
+
+      p.put()
+
+      return self.redirect("/settings")
