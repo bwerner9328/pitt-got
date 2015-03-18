@@ -25,8 +25,21 @@
   <body>
   {% include "mainpage-v3.html" %}
     <div id="section">
-    Settings. <br>
-    Hello, {{name}}.
+      <br>
+      <b>Settings<b> <br>
+      <form action = "/settings" method = "post">
+        If you would like to change your major, do so below. Also please be sure to reenter your GPA and the number of credits you've taken.<br><br>
+        Major
+        <select name="Major">
+          <option value="Computer Science">Computer Science</option>
+          <option value="Computer Engineering">Computer Engineering</option>
+        </select><br><br>
+        GPA
+        <input type="number" name="GPA" min="0" max="4" step="any" value="0.0"> <br><br>
+        Credits taken
+        <input type="number" name="creditsTaken" min="0" value="0">
+        <input type="Submit" value="Register"/>
+      </form>
     </div>
  
     <!-- Bootstrap core JavaScript
@@ -38,6 +51,3 @@
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
-
- 
-
