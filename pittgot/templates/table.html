@@ -16,11 +16,20 @@ function changeColor(id) {
 
 	else 
 	{
-		id.style.backgroundColor="#a2edb1";
-		var gpa=prompt("Please enter your grade for this class:","A+");
-		if (gpa!=null){			
-       		id.innerHTML = id.innerHTML + "<p></p>" + "Your Grade: " + gpa + "";
-   		}
+		
+
+		// var gpa=prompt("Please enter your grade for this class:","A+");
+		// if (gpa!=null){			
+  //      		id.innerHTML = id.innerHTML + "<p></p>" + "Your Grade: " + gpa + "";
+  //  		}
+
+   		var before = id.innerHTML;
+   		var gpa=prompt("Please enter your grade for this class:","A+");		 
+   		if (gpa === null || gpa === false) { id.innerHTML = before; }
+        if (gpa === "") { id.innerHTML = before; }
+        else { id.innerHTML = before + "<p></p>" + "Your Grade: " + gpa + "";
+        			id.style.backgroundColor="#a2edb1";}
+
 		//id.innerHTML = id.id + "";
 		//allChanges = allChanges + "|" + id.id;
 		//allChanges = id.id;
