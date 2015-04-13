@@ -1,49 +1,31 @@
 <html>
 <script>
 
-//var allChanges = "";
-
 function changeColor(id) { 
-	//var current_color = ;
 	var allChanges = "";
 
 	if (id.style.backgroundColor == "rgb(162, 237, 177)") 
 	{
 		id.style.backgroundColor="#ffffff";
-		document.getElementById('hiddenGrade1').style.display = "none";
-    	//id.innerHTML = id.id + "";
-    	//allChanges = id.id;
+		document.getElementById(id.id+" Grade").style.display = "none";    	
 	}   
 
 	else 
-	{
-		
-
-		// var gpa=prompt("Please enter your grade for this class:","A+");
-		// if (gpa!=null){			
-  //      		id.innerHTML = id.innerHTML + "<p></p>" + "Your Grade: " + gpa + "";
-  //  		}
-
+	{				
    		var before = id.innerHTML;
    		var gpa=prompt("Please enter your grade for this class:","A+");		 
    		if (gpa === null || gpa === false) { id.innerHTML = before; }
         if (gpa === "") { id.innerHTML = before; }
         else { 
-        	//id.innerHTML = before + "<p></p>" + "Your Grade: " + gpa + "";
-        	document.getElementById('hiddenGrade1').innerHTML = "Your grade is: " + gpa;
-        	document.getElementById('hiddenGrade1').style.display = "inline";
-        			id.style.backgroundColor="#a2edb1";}
-
-		//id.innerHTML = id.id + "";
-		//allChanges = allChanges + "|" + id.id;
-		//allChanges = id.id;
+        	document.getElementById(id.id+" Grade").innerHTML = "Your grade is: " + gpa;
+        	document.getElementById(id.id+" Grade").style.display = "inline";
+        	id.style.backgroundColor="#a2edb1";}
 	}
 
 	allChanges = id.id;
 	var request = new XMLHttpRequest();	
 	request.open("POST","/main",true);
 	request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	//allCoursesChanged = "Engineering Analysis";
 	request.send(allChanges);
 }
 // function sendPostRequest() {
@@ -75,15 +57,29 @@ function changeColor(id) {
 	</tr>
 	<tr>
 		<td onclick="changeColor(this)" style="background-color:{{classTaken.1}}" id = "Engineering Analysis" {{classTaken.1}}>{{courseNames.1}} <br><br> {{courseId.1}} <br><br> {{courseCredits.1}} Credits 
-		<p></p><div style="display: none;" id="hiddenGrade1">Your grade is: A+</div>
+		<p></p><div style="display: none;" id="Engineering Analysis Grade">Your grade is: A+</div>
 		</td>
-		<td onclick="changeColor(this)" style="background-color:{{classTaken.6}}" id = "Engineering Computing" {{classTaken.6}}>{{courseNames.6}} <br><br> {{courseId.6}} <br><br> {{courseCredits.6}} Credits</td>
-		<td onclick="changeColor(this)" style="background-color:{{classTaken.11}}" id = "Digital Logic" {{classTaken.11}}>{{courseNames.11}} <br><br> {{courseId.11}} <br><br> {{courseCredits.11}} Credits</td>
-		<td onclick="changeColor(this)" style="background-color:{{classTaken.16}}" id = "Computer Organization" {{classTaken.16}}>{{courseNames.16}} <br><br> {{courseId.16}} <br><br> {{courseCredits.16}} Credits</td>
-		<td onclick="changeColor(this)" style="background-color:{{classTaken.21}}" id = "Systems Software" {{classTaken.21}}>{{courseNames.21}} <br><br> {{courseId.21}} <br><br> {{courseCredits.21}} Credits</td>
-		<td onclick="changeColor(this)" style="background-color:{{classTaken.26}}" id = "Computer Architecture" {{classTaken.26}}>{{courseNames.26}} <br><br> {{courseId.26}} <br><br> {{courseCredits.26}} Credits</td>
-		<td onclick="changeColor(this)" style="background-color:{{classTaken.31}}" id = "Technical Elective 2" {{classTaken.31}}>{{courseNames.31}} <br><br> {{courseId.31}} <br><br> {{courseCredits.31}} Credits</td>
-		<td onclick="changeColor(this)" style="background-color:{{classTaken.36}}" id = "COE Design Elective" {{classTaken.36}}>{{courseNames.36}} <br><br> {{courseId.36}} <br><br> {{courseCredits.36}} Credits</td>
+		<td onclick="changeColor(this)" style="background-color:{{classTaken.6}}" id = "Engineering Computing" {{classTaken.6}}>{{courseNames.6}} <br><br> {{courseId.6}} <br><br> {{courseCredits.6}} Credits
+		<p></p><div style="display: none;" id="Engineering Computing Grade">Your grade is: A+</div>
+		</td>
+		<td onclick="changeColor(this)" style="background-color:{{classTaken.11}}" id = "Digital Logic" {{classTaken.11}}>{{courseNames.11}} <br><br> {{courseId.11}} <br><br> {{courseCredits.11}} Credits
+		<p></p><div style="display: none;" id="Digital Logic Grade">Your grade is: A+</div>
+		</td>
+		<td onclick="changeColor(this)" style="background-color:{{classTaken.16}}" id = "Computer Organization" {{classTaken.16}}>{{courseNames.16}} <br><br> {{courseId.16}} <br><br> {{courseCredits.16}} Credits
+		<p></p><div style="display: none;" id="Computer Organization Grade">Your grade is: A+</div>
+		</td>
+		<td onclick="changeColor(this)" style="background-color:{{classTaken.21}}" id = "Systems Software" {{classTaken.21}}>{{courseNames.21}} <br><br> {{courseId.21}} <br><br> {{courseCredits.21}} Credits
+		<p></p><div style="display: none;" id="Systems Software Grade">Your grade is: A+</div>
+		</td>
+		<td onclick="changeColor(this)" style="background-color:{{classTaken.26}}" id = "Computer Architecture" {{classTaken.26}}>{{courseNames.26}} <br><br> {{courseId.26}} <br><br> {{courseCredits.26}} Credits
+		<p></p><div style="display: none;" id="Computer Architecture Grade">Your grade is: A+</div>
+		</td>
+		<td onclick="changeColor(this)" style="background-color:{{classTaken.31}}" id = "Technical Elective 2" {{classTaken.31}}>{{courseNames.31}} <br><br> {{courseId.31}} <br><br> {{courseCredits.31}} Credits
+		<p></p><div style="display: none;" id="Technical Elective 2 Grade">Your grade is: A+</div>
+		</td>
+		<td onclick="changeColor(this)" style="background-color:{{classTaken.36}}" id = "COE Design Elective" {{classTaken.36}}>{{courseNames.36}} <br><br> {{courseId.36}} <br><br> {{courseCredits.36}} Credits
+		<p></p><div style="display: none;" id="COE Design Elective Grade">Your grade is: A+</div>
+		</td>
 	</tr>
 	<tr>
 		<td onclick="changeColor(this)" style="background-color:{{classTaken.2}}" id = "Physics 1" {{classTaken.2}}>{{courseNames.2}} <br><br> {{courseId.2}} <br><br> {{courseCredits.2}} Credits</td>
