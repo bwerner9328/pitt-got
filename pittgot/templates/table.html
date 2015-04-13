@@ -33,9 +33,9 @@ function changeColor(id) {
 	{				        
    		var before = id.innerHTML;
    		var selid = id+"sel";
-   		selopt = document.getElementById(selid);
+   		var selopt = document.getElementById(selid);
    		//var gpa=prompt("Please enter your grade for this class:","A+");	
-   		gpa = selopt.options[selopt.selectedIndex].value;
+   		var gpa = selopt.options[selopt.selectedIndex].value;
    		if (gpa === null || gpa === false) { id.innerHTML = before; }
         if (gpa === "") { id.innerHTML = before; }
      	else { document.getElementById(id.id+" Grade").innerHTML = "Your grade is: " + gpa;
@@ -146,25 +146,67 @@ function changeColor(id) {
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="myModalLabel">Basic Modal</h4>
+            <h4 class="modal-title" id="myModalLabel">Update Class Information</h4>
           </div>
           <div class="modal-body">
-      		<select id = "c1r1sel">
-          		<option>A+</option>
-          		<option>A</option>
-          		<option>A-</option>
-          		<option>B+</option>
-          		<option>B</option>
-          		<option>B-</option>
-          		<option>C+</option>
-          		<option>C</option>
-          		<option>C-</option>
-          		<option>D+</option>
-          		<option>D</option>
-          		<option>D-</option>
-          		<option>F</option>
-      		</select>
-      		<p>
+          	<table>
+          		<tr>
+          			<td>
+          				Entry
+          			</td>
+          			<td>
+          				Value
+          			</td>
+          		</tr>
+      			<tr>
+      				<td>
+      				Course Name:
+      				</td>
+      				<td>
+      					<input id = "c1r1coursename" value="{{courseNames.1}}" />
+      				</td>
+      			</tr>
+      			<tr>
+      				<td>
+      				Course ID:
+      				</td>
+      				<td>
+      					<input id = "c1r1courseid" value="{{courseId.1}}" />
+      				</td>
+      			</tr>         			   
+      			<tr>
+      				<td>
+      				Credits:
+      				</td>
+      				<td>
+      					<input id = "c1r1coursecredits" value="{{courseCredits.1}}" />
+      				</td>
+      			</tr>
+          		<tr>
+          			<td>
+          			Grade:
+          			</td>
+          			<td>
+      					<select id = "c1r1sel">
+          					<option>A+</option>
+          					<option>A</option>
+			          		<option>A-</option>
+          					<option>B+</option>
+     			     		<option>B</option>
+    			      		<option>B-</option>
+    			      		<option>C+</option>
+    			      		<option>C</option>
+    			      		<option>C-</option>
+          					<option>D+</option>
+      			    		<option>D</option>
+          					<option>D-</option>
+          					<option>Did not Take</option>
+          				<option>F</option>
+      					</select>
+      				</td>
+      			</tr>   		
+      		
+      		</table>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             <button onclick="changeColor(c1r1)" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
