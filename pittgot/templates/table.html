@@ -32,9 +32,6 @@ function changeColor(id) {
 </script>
 <link href="../static/bootstrap.min.css" rel="stylesheet">
 <link href="../static/starter-template.css" rel="stylesheet">
-<!--	<div class="wrapper">
-		<button type = "button" class="btn btn-lg btn-success" onclick="sendPostRequest()">Save ALL Changes</button>
-	</div><br>-->
 
 <div class="CSSTableGenerator">
 
@@ -50,11 +47,9 @@ function changeColor(id) {
 		<td>Semester #8<br>Senior 2</td>
 	</tr>
 	<tr>
-		<!--onclick="changeColor(this)" -->
 		<td style="background-color:{{classTaken.1}}" id = "c1r1" {{classTaken.1}}>
 			{{courseNames.1}} <br><br> {{courseId.1}} <br><br> {{courseCredits.1}} Credits
-			<a href="#" data-toggle="modal" data-target="#c1r1modal">
-			</a>
+			<a href="#" data-toggle="modal" data-target="#c1r1modal"></a>
 			<p></p><div style="display: none;" id="c1r1 Grade">Your grade is: A+</div>
 		</td>
 		<td onclick="changeColor(this)" style="background-color:{{classTaken.6}}" id = "Engineering Computing" {{classTaken.6}}>{{courseNames.6}} <br><br> {{courseId.6}} <br><br> {{courseCredits.6}} Credits
