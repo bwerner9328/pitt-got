@@ -24,8 +24,9 @@ class Student(db.Model) :
   classTakenGrade = db.ListProperty(str)
   avatar = db.BlobProperty()
   #  modified student db elements for courses
-  courseNames = db.ListProperty(str)
   coursesTaken = db.ListProperty(bool)
+  courseNames = db.ListProperty(str)
+  courseIds = db.ListProperty(str)  
   courseCredits = db.ListProperty(int)
   courseGrades = db.ListProperty(str)
   # db elements for calendar events

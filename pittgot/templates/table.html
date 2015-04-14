@@ -13,17 +13,29 @@ function changeColor(id) {
 	else 
 	{				        
    		var before = id.innerHTML;
-   		var selid = id.id+"sel";
-   		var selopt = document.getElementById(selid);
-   		var gpa = selopt.options[selopt.selectedIndex].value;
-   		if (gpa === null || gpa === false) { id.innerHTML = before; }
-        if (gpa === "") { id.innerHTML = before; }
-     	else { document.getElementById(id.id+" Grade").innerHTML = "Your grade is: " + gpa;
-        	document.getElementById(id.id+" Grade").style.display = "inline";
+
+		var courseNameEle =document.getElementById(id.id+"coursename");
+		var courseName = courseNameEle.value;
+		var courseIdEle = document.getElementById(id.id+"courseid");
+		var courseId = courseIdEle.value;
+		var creditsEle = document.getElementById(id.id+"coursecredits");  
+   		var credits = creditsEle.options[creditsEle.selectedIndex].value;
+   		var gradeEle = document.getElementById(id.id+"sel");   		   		
+   		var grade = gradeEle.options[gradeEle.selectedIndex].value;   				 
+
+   		if (grade === null || grade === false) { id.innerHTML = before; }
+        if (grade === "") { id.innerHTML = before; }
+     	else { 
+     		document.getElementById(id.id+"Info").innerHTML = courseName + "<p></p>" 
+     		+ courseId + "<p></p>" + credits + " Credits";
+     		document.getElementById(id.id+"Grade").innerHTML = "Your grade is: " + grade;
+        	document.getElementById(id.id+"Grade").style.display = "inline";
         	id.style.backgroundColor="#a2edb1";}
     }
 
-	allChanges = id.id;
+	var allChanges = 'coursetaken='+Boolean(true)+'&coursename='+String(courseName)+
+	"&courseid="+String(courseId)+"&credits="+parseInt(credits, 10)+"&grade="+String(grade);
+	//alert(allChanges);
 	var request = new XMLHttpRequest();	
 	request.open("POST","/main",true);
 	request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
@@ -48,9 +60,9 @@ function changeColor(id) {
 	</tr>
 	<tr>
 		<td style="background-color:{{classTaken.1}}" id = "c1r1" {{classTaken.1}}>
-			{{courseNames.1}} <br><br> {{courseId.1}} <br><br> {{courseCredits.1}} Credits
+			<div style="display: inline;" id="c1r1Info">{{courseNames.1}} <br><br> {{courseId.1}} <br><br> {{courseCredits.1}} Credits</div>			
 			<a href="#" data-toggle="modal" data-target="#c1r1modal"></a>
-			<p></p><div style="display: none;" id="c1r1 Grade">Your grade is: A+</div>
+			<p></p><div style="display: none;" id="c1r1Grade">Your grade is: A+</div>
 		</td>
 
 		<td onclick="changeColor(this)" style="background-color:{{classTaken.6}}" id = "Engineering Computing" {{classTaken.6}}>{{courseNames.6}} <br><br> {{courseId.6}} <br><br> {{courseCredits.6}} Credits
