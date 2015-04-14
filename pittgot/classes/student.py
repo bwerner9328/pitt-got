@@ -19,6 +19,12 @@ class Events(ndb.Model):
   eventID = ndb.IntegerProperty()
   eventStart = ndb.StringProperty()
   eventEnd = ndb.StringProperty()
+class Course(ndb.Model):
+  courseTaken = ndb.BooleanProperty()
+  courseName = ndb.StringProperty()
+  courseId = ndb.StringProperty()
+  courseCredits = ndb.IntegerProperty()
+  courseGrade = ndb.StringProperty()
 #The data storage for student info
 class Student(ndb.Model) :
   email = ndb.StringProperty()
@@ -30,5 +36,6 @@ class Student(ndb.Model) :
   classTakenGrade = ndb.StringProperty(repeated=True)
   # db elements for calendar events
   events = ndb.StructuredProperty(Events, repeated=True)
+  courses = ndb.StructuredProperty(Course, repeated=True)
 
 
