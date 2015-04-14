@@ -18,8 +18,7 @@ class Cover(webapp2.RequestHandler):
   def get(self) :
     user = users.get_current_user()
     if user:
-      q = Student.all()
-      q.filter("email =", user.email())
+      q = Student.query(Student.email == user.email())
       if q.get(): #checks if email is in database.
         render_table(self, q)
       else :
@@ -38,7 +37,6 @@ class Cover(webapp2.RequestHandler):
     regUser.put()
     user = users.get_current_user()
     if(user):
-      q = Student.all()
-      q.filter("email =", user.email())
+      q = Student.query(Student.email == user.email())
       if q.get():
         render_table(self, q)
