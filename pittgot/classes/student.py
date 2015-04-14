@@ -23,4 +23,14 @@ class Student(db.Model) :
   gradProgress = db.IntegerProperty()
   classTakenGrade = db.ListProperty(str)
   avatar = db.BlobProperty()
-
+  #  modified student db elements for courses
+  courseNames = db.ListProperty(str)
+  coursesTaken = db.ListProperty(bool)
+  courseCredits = db.ListProperty(int)
+  courseGrades = db.ListProperty(str)
+  # db elements for calendar events
+  eventTitle = db.ListProperty(str)
+  eventAllDay = db.ListProperty(bool)
+  eventID = db.ListProperty(int)
+  eventStart = db.ListProperty(datetime.time)
+  eventEnd = db.ListProperty(datetime.time)
