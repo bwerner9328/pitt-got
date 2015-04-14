@@ -60,35 +60,37 @@
           allChanges = allChanges+ document.getElementById("eventName").value;
           
           
-          // days of the week
-          allChanges = ","+allChanges+ document.getElementById("Sunday").value;
-          allChanges = ","+allChanges+ document.getElementById("Monday").value;
-          allChanges = ","+allChanges+document.getElementById("Tuesday").value;
-          allChanges = ","+allChanges+ document.getElementById("Wednesday").value;
-          allChanges = ","+allChanges+ document.getElementById("Thursday").value;
-          allChanges = ","+allChanges+ document.getElementById("Friday").value;
-          allChanges = ","+allChanges+ document.getElementById("Saturday").value;
+          /* days of the week
+          allChanges = allChanges+","+ document.getElementById("Sunday").value;
+          allChanges = allChanges+","+ document.getElementById("Monday").value;
+          allChanges = allChanges+","+document.getElementById("Tuesday").value;
+          allChanges = allChanges+","+ document.getElementById("Wednesday").value;
+          allChanges = allChanges+","+document.getElementById("Thursday").value;
+          allChanges = allChanges+","+ document.getElementById("Friday").value;
+          allChanges = allChanges+","+ document.getElementById("Saturday").value;
+          */
           // all day?
-          allChanges = ","+allChanges+ document.getElementById("allday").value;
+          allChanges = allChanges+","+ document.getElementById("allday").value;
           // repeat? how long?
-          allChanges = ","+allChanges+document.getElementById("repeat").value;
-          allChanges = ","+allChanges+ document.getElementById("numrepeat").value;
+          allChanges = allChanges+","+document.getElementById("repeat").value;
+          allChanges = allChanges+","+ document.getElementById("numrepeat").value;
           // start tiem/date?
-          allChanges = ","+allChanges+ document.getElementById("syear").value;
-          allChanges = ","+allChanges+ document.getElementById("smonth").value;
-          allChanges = ","+allChanges+ document.getElementById("sday").value;
-          allChanges = ","+allChanges+ document.getElementById("stime").value;
+          allChanges = allChanges+","+ document.getElementById("syear").value;
+          allChanges = allChanges+","+document.getElementById("smonth").value;
+          allChanges = allChanges+","+ document.getElementById("sday").value;
+          allChanges = allChanges+","+ document.getElementById("stime").value;
           // end time/ date?
-          allChanges = ","+allChanges+ document.getElementById("eyear").value;
-          allChanges = ","+allChanges+ document.getElementById("emonth").value;
-          allChanges = ","+allChanges+ document.getElementById("eday").value;
-          allChanges = ","+allChanges+document.getElementById("etime").value;
-
+          allChanges = allChanges+","+ document.getElementById("eyear").value;
+          allChanges = allChanges+","+ document.getElementById("emonth").value;
+          allChanges = allChanges+","+ document.getElementById("eday").value;
+          allChanges = allChanges+","+document.getElementById("etime").value;
+          
 
           var request = new XMLHttpRequest(); 
           request.open("POST","/schedule",true);
           request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
           request.send(allChanges);
+          document.getElementById("form-id").submit();
         }
       </script>
       <style>
@@ -141,6 +143,7 @@
     </div><!-- /.container -->
 
     <div id='calendar'></div>
+
     <br>
     <div class="row text-center">
       <a href="#" class="btn btn-lg btn-success" data-toggle="modal" data-target="#basicModal">Add Class or Event</a>
@@ -217,21 +220,31 @@
           <select id="eday" name="eday">
             <script>
             for(var i = 1; i < 31; i++){
-              document.write('<option value="'+i+'">'+i+'</option>');
+              if(i < 10){
+                document.write('<option value="'+"0"+i+'">'+"0"i+'</option>');
+              }
+              else{
+                document.write('<option value="'+i+'">'+i+'</option>');
+              }
             }
           </script> 
           </select> Time:
           <select id="etime" name="etime">
             <script>
             for(var i = 0; i < 24; i++){
-              document.write('<option value="'+i+'">'+i+":00"+'</option>');
+              if(i < 10)
+                document.write('<option value="'+"0"+i+'">'+"0"+i+":00"+'</option>');
+              else
+                document.write('<option value="'+i+'">'+i+":00"+'</option>');
             }
           </script> 
           </select>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" onclick="addEvent()" >Add</button>
+          <form id = "form-id">
+            <button type="submit" class="btn btn-primary" onclick="addEvent()" data-dismiss="modal">Add</button>
+          </form>
         </div>
       </div>
     </div>
