@@ -51,6 +51,13 @@ class Main(webapp2.RequestHandler):
     q = Student.all()
     q.filter("email =", user.email())
 
+    #TODO Store them into db!
+    courseTaken = bool(self.request.get('coursetaken'))
+    courseName = str(self.request.get('coursename'))
+    courseId = str(self.request.get('courseid'))
+    credits = int(self.request.get('credits'))
+    grade = str(self.request.get('grade'))
+
     with open("computerengineering.csv", 'r') as csvfile:
       csvreader = csv.reader(csvfile, dialect='excel')
       courseList = list(csvreader)
@@ -58,7 +65,7 @@ class Main(webapp2.RequestHandler):
 
     courseCredits = {}
     courseId = {}
-    tableElement = {}
+    tableElement = {}    
     # addCourse = self.request.get('courseCompleted')
     temp = self.request.arguments().pop()
     addCourses = temp.split("|")

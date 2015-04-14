@@ -31,3 +31,4 @@ class Student(ndb.Model) :
   # db elements for calendar events
   events = ndb.StructuredProperty(Events, repeated=True)
 
+
