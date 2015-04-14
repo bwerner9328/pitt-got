@@ -35,13 +35,14 @@
       $(document).ready(function() {
 
         $('#calendar').fullCalendar({
+
          header: {
           left: 'prev,next today',
           center: 'title',
           right: 'month,agendaWeek,agendaDay'
         },
         defaultDate: '{{date}}',
-        editable: true,
+        editable: false,
 			eventLimit: true, // allow "more" link when too many events
 			{% autoescape off %}
       {{events}}
@@ -70,9 +71,9 @@
           allChanges = allChanges+","+ document.getElementById("Saturday").value;
           */
           // all day?
-          allChanges = allChanges+","+ document.getElementById("allday").value;
+          allChanges = allChanges+","+ document.getElementById("allday").checked;
           // repeat? how long?
-          allChanges = allChanges+","+document.getElementById("repeat").value;
+          allChanges = allChanges+","+document.getElementById("repeat").checked;
           allChanges = allChanges+","+ document.getElementById("numrepeat").value;
           // start tiem/date?
           allChanges = allChanges+","+ document.getElementById("syear").value;
@@ -91,6 +92,19 @@
           request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
           request.send(allChanges);
           document.getElementById("form-id").submit();
+        }
+
+        function deleteEvent(){
+          var deleted = document.getElementById("deleteItem").value
+          var allChanges = deleted.substring(deleted.indexOf("id: ")+4,deleted.length-1)
+
+          var request = new XMLHttpRequest(); 
+          request.open("POST","/scheduleDelete",true);
+          request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+          request.send(allChanges);
+          return xmlHttp.responseText;
+          
+
         }
       </script>
       <style>
@@ -147,7 +161,7 @@
     <br>
     <div class="row text-center">
       <a href="#" class="btn btn-lg btn-success" data-toggle="modal" data-target="#basicModal">Add Class or Event</a>
-     <!-- <a href="#" class="btn btn-lg btn-success" data-toggle="modal" data-target="#basicModal2">Del Class or Event</a> -->
+      <a href="#" class="btn btn-lg btn-success" data-toggle="modal" data-target="#basicModal2">Del Class or Event</a> 
     </div>
     <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
       <div class="modal-dialog">
@@ -159,7 +173,7 @@
          <div class="modal-body">
 
           <b>Event Name:</b> <input id = "eventName"/> <br> <br>
-          <b>Days of the Week: </b> <br>
+         <!-- <b>Days of the Week: </b> <br>
           Sunday: <input type="checkbox" id = "Sunday" checked="yes">
           Monday: <input type="checkbox" id = "Monday" checked="yes">
           Tuesday: <input type="checkbox" id = "Tuesday" checked="yes">
@@ -167,7 +181,7 @@
           Thursday: <input type="checkbox" id = "Thursday" checked="yes">
           Friday: <input type="checkbox" id = "Friday" checked="yes">
           Saturday: <input type="checkbox" id = "Saturday" checked="yes">
-          <br> <br>
+          <br> <br> -->
           <b>All Day: </b> <input type="checkbox" name="allday" id = "allday" checked="yes"> <br>
           <b>Repeat:</b> <input type="checkbox" name = "repeat" id = "repeat" checked="yes"> Number of Weeks to Repeat:
           <input id = "numrepeat"> <br> <br>
@@ -182,7 +196,12 @@
           <select id="smonth" name="smonth">
             <script>
             for(var i = 1; i < 13; i++){
-              document.write('<option value="'+i+'">'+i+'</option>');
+              if(i < 10){
+                document.write('<option value="'+"0"+i+'">'+"0"+i+'</option>');
+              }
+              else{
+                document.write('<option value="'+i+'">'+i+'</option>');
+              }
             }
           </script> 
           </select> Day:
@@ -190,14 +209,22 @@
           <select id="sday" name="sday">
             <script>
             for(var i = 1; i < 31; i++){
-              document.write('<option value="'+i+'">'+i+'</option>');
+              if(i < 10){
+                document.write('<option value="'+"0"+i+'">'+"0"+i+'</option>');
+              }
+              else{
+                document.write('<option value="'+i+'">'+i+'</option>');
+              }
             }
           </script> 
           </select> Time:
           <select id="stime" name="stime">
             <script>
             for(var i = 0; i < 24; i++){
-              document.write('<option value="'+i+'">'+i+":00"+'</option>');
+              if(i < 10)
+                document.write('<option value="'+"0"+i+'">'+"0"+i+":00"+'</option>');
+              else
+                document.write('<option value="'+i+'">'+i+":00"+'</option>');
             }
           </script> 
           </select><br> <br>
@@ -212,7 +239,12 @@
           <select id="emonth" name="emonth">
             <script>
             for(var i = 1; i < 13; i++){
-              document.write('<option value="'+i+'">'+i+'</option>');
+              if(i < 10){
+                document.write('<option value="'+"0"+i+'">'+"0"+i+'</option>');
+              }
+              else{
+                document.write('<option value="'+i+'">'+i+'</option>');
+              }
             }
           </script> 
           </select> Day:
@@ -221,7 +253,7 @@
             <script>
             for(var i = 1; i < 31; i++){
               if(i < 10){
-                document.write('<option value="'+"0"+i+'">'+"0"i+'</option>');
+                document.write('<option value="'+"0"+i+'">'+"0"+i+'</option>');
               }
               else{
                 document.write('<option value="'+i+'">'+i+'</option>');
@@ -257,14 +289,16 @@
          <h4 class="modal-title" id="myModalLabel">Delete a Class or Event</h4>
        </div>
        <div class="modal-body">
-
-
-
+          <select id = "deleteItem">
+            {% for str in eventList %}
+              <option value='{{str}}'>{{str}}</option>
+            {% endfor %}
+          </select>
        </div>
        <div class="modal-footer">
-        <button type="button" class="btn btn-default" onclick="addEvent()" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
-        <button type="button" class="btn btn-primary">Delete</button>
+        <button type="button" class="btn btn-primary" onclick="deleteEvent()">Delete</button>
       </div>
     </div>
   </div>

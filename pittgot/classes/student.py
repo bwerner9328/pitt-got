@@ -15,7 +15,7 @@ import rendertemplate
 render_template = rendertemplate.render_template
 class Events(ndb.Model):
   eventTitle = ndb.StringProperty()
-  eventAllDay = ndb.BooleanProperty
+  eventAllDay = ndb.BooleanProperty()
   eventID = ndb.IntegerProperty()
   eventStart = ndb.StringProperty()
   eventEnd = ndb.StringProperty()
@@ -25,6 +25,7 @@ class Course(ndb.Model):
   courseId = ndb.StringProperty()
   courseCredits = ndb.IntegerProperty()
   courseGrade = ndb.StringProperty()
+
 #The data storage for student info
 class Student(ndb.Model) :
   email = ndb.StringProperty()
@@ -37,5 +38,6 @@ class Student(ndb.Model) :
   # db elements for calendar events
   events = ndb.StructuredProperty(Events, repeated=True)
   courses = ndb.StructuredProperty(Course, repeated=True)
+  curid = ndb.IntegerProperty()
 
 

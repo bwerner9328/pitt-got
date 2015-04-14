@@ -20,6 +20,7 @@ from classes.profile import Profile
 from classes.contact import Contact
 from classes.schedule import Schedule
 from classes.storeimg import StoreImg
+from classes.scheduleDelete import ScheduleDelete
 
 app = webapp2.WSGIApplication([
   ('/', Cover),
@@ -30,6 +31,7 @@ app = webapp2.WSGIApplication([
   ('/profile', Profile),
   ('/contact', Contact),
   ('/sign', StoreImg),
-  ('/schedule', Schedule)
+  ('/schedule', Schedule),
+  ('/scheduleDelete', ScheduleDelete)
 ])
 

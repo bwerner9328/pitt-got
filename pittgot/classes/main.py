@@ -30,8 +30,7 @@ class Main(webapp2.RequestHandler):
 
     user = users.get_current_user()
     if(user):
-      q = Student.all()
-      q.filter("email =", user.email())
+      q = Student.query(Student.email == user.email())
       if q.get():
         render_table(self, q)
 
@@ -48,8 +47,9 @@ class Main(webapp2.RequestHandler):
 
   def post(self) :
     user = users.get_current_user()
-    q = Student.all()
-    q.filter("email =", user.email())
+      
+    q = Student.query(Student.email == user.email())
+    p = q.get()
 
     #TODO Store them into db!
     courseTaken = bool(self.request.get('coursetaken'))
