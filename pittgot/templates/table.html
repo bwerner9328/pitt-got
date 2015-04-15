@@ -5,7 +5,8 @@
 <script>
 function changeColor(idd) { 
 	var allChanges = "";
-	var id = document.getElementById(idd);		        
+	alert(idd);
+	var id = document.getElementById(idd);
 	var before = id.innerHTML;
 	var courseNameEle =document.getElementById(id.id+"coursename");
 	var courseName = courseNameEle.value;
@@ -25,7 +26,7 @@ function changeColor(idd) {
     	id.style.backgroundColor="#a2edb1";
     }
 
-    Boolean taken = true;
+    var taken = true;
     if (grade === "Did not Take")
     {
     	taken = false; alert("did not take");
@@ -37,7 +38,7 @@ function changeColor(idd) {
     	id.style.backgroundColor="#a2edb1"; alert("take");
     }
 
-	var allChanges = 'cellnumber='+parseInt(id.id)+'&coursetaken='+Boolean(true)+'&coursename='+String(courseName)+
+	var allChanges = 'cellnumber='+parseInt(id.id)+'&coursetaken='+Boolean(taken)+'&coursename='+String(courseName)+
 	"&courseid="+String(courseId)+"&credits="+parseInt(credits, 10)+"&grade="+String(grade);
 	alert(allChanges);
 	var request = new XMLHttpRequest();	
