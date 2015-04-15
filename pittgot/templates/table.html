@@ -8,12 +8,10 @@ function changeColor(id) {
 	if (id.style.backgroundColor == "rgb(162, 237, 177)") 
 	{
 		id.style.backgroundColor="#ffffff";
-		document.getElementById(id.id+" Grade").style.display = "none";    	
 	}   
 	else
 	{				        
    		var before = id.innerHTML;
-
 		var courseNameEle =document.getElementById(id.id+"coursename");
 		var courseName = courseNameEle.value;
 		var courseIdEle = document.getElementById(id.id+"courseid");
@@ -27,13 +25,11 @@ function changeColor(id) {
         if (grade === "") { id.innerHTML = before; }
      	else { 
      		document.getElementById(id.id+"Info").innerHTML = courseName + "<p></p>" 
-     		+ courseId + "<p></p>" + credits + " Credits";
-     		document.getElementById(id.id+"Grade").innerHTML = "Your grade is: " + grade;
-        	document.getElementById(id.id+"Grade").style.display = "inline";
+     		+ courseId + "<p></p>" + credits + " Credits" + "<p></p>" + "Your grade is: " + grade;     		
         	id.style.backgroundColor="#a2edb1";}
     }
 
-	var allChanges = 'coursetaken='+Boolean(true)+'&coursename='+String(courseName)+
+	var allChanges = 'cellnumber='+parseInt(id.id)+'&coursetaken='+Boolean(true)+'&coursename='+String(courseName)+
 	"&courseid="+String(courseId)+"&credits="+parseInt(credits, 10)+"&grade="+String(grade);
 	//alert(allChanges);
 	var request = new XMLHttpRequest();	
@@ -59,52 +55,56 @@ function changeColor(id) {
 		<td>Semester #8<br>Senior 2</td>
 	</tr>
 	<tr>
-		<td style="background-color:{{classTaken.1}}" id = "c1r1" {{classTaken.1}}>
-			<div style="display: inline;" id="c1r1Info">{{courseNames.1}} <br><br> {{courseId.1}} <br><br> {{courseCredits.1}} Credits</div>			
-			<a href="#" data-toggle="modal" data-target="#c1r1modal"></a>
-			<p></p><div style="display: none;" id="c1r1Grade">Your grade is: A+</div>
-		</td>
-
-		<td onclick="changeColor(this)" style="background-color:{{classTaken.6}}" id = "Engineering Computing" {{classTaken.6}}>{{courseNames.6}} <br><br> {{courseId.6}} <br><br> {{courseCredits.6}} Credits
-		<p></p><div style="display: none;" id="Engineering Computing Grade">Your grade is: A+</div>
-		</td>
-
-		<td onclick="changeColor(this)" style="background-color:{{classTaken.11}}" id = "Digital Logic" {{classTaken.11}}>{{courseNames.11}} <br><br> {{courseId.11}} <br><br> {{courseCredits.11}} Credits
-		<p></p><div style="display: none;" id="Digital Logic Grade">Your grade is: A+</div>
-		</td>
-
-		<td onclick="changeColor(this)" style="background-color:{{classTaken.16}}" id = "Computer Organization" {{classTaken.16}}>{{courseNames.16}} <br><br> {{courseId.16}} <br><br> {{courseCredits.16}} Credits
-		<p></p><div style="display: none;" id="Computer Organization Grade">Your grade is: A+</div>
-		</td>
-
-		<td onclick="changeColor(this)" style="background-color:{{classTaken.21}}" id = "Systems Software" {{classTaken.21}}>{{courseNames.21}} <br><br> {{courseId.21}} <br><br> {{courseCredits.21}} Credits
-		<p></p><div style="display: none;" id="Systems Software Grade">Your grade is: A+</div>
-		</td>
-
-		<td onclick="changeColor(this)" style="background-color:{{classTaken.26}}" id = "Computer Architecture" {{classTaken.26}}>{{courseNames.26}} <br><br> {{courseId.26}} <br><br> {{courseCredits.26}} Credits
-		<p></p><div style="display: none;" id="Computer Architecture Grade">Your grade is: A+</div>
-		</td>
-
-		<td onclick="changeColor(this)" style="background-color:{{classTaken.31}}" id = "Technical Elective 2" {{classTaken.31}}>{{courseNames.31}} <br><br> {{courseId.31}} <br><br> {{courseCredits.31}} Credits
-		<p></p><div style="display: none;" id="Technical Elective 2 Grade">Your grade is: A+</div>
-		</td>
-
-		<td onclick="changeColor(this)" style="background-color:{{classTaken.36}}" id = "COE Design Elective" {{classTaken.36}}>{{courseNames.36}} <br><br> {{courseId.36}} <br><br> {{courseCredits.36}} Credits
-		<p></p><div style="display: none;" id="COE Design Elective Grade">Your grade is: A+</div>
-		</td>
-
+		<td style="background-color:{{classTaken.0}}" id = "0" {{classTaken.0}}>
+			div style="display: inline;" id="0Info">{{courseNames.0}} <br><br> {{courseId.0}} <br><br> {{courseCredits.0}} Credits <br><br> Your grade is: Did not Take</div>
+			<a href="#" data-toggle="modal" data-target="#0modal"></a></td>
+		<td style="background-color:{{classTaken.5}}" id = "5" {{classTaken.5}}>
+			<div style="display: inline;" id="1Info">{{courseNames.5}} <br><br> {{courseId.5}} <br><br> {{courseCredits.5}} Credits <br><br> Your grade is: Did not Take</div>			
+			<a href="#" data-toggle="modal" data-target="#5modal"></a></td>
+		<td style="background-color:{{classTaken.10}}" id = "10" {{classTaken.10}}>
+			<div style="display: inline;" id="10Info">{{courseNames.10}} <br><br> {{courseId.10}} <br><br> {{courseCredits.10}} Credits <br><br> Your grade is: Did not Take</div>			
+			<a href="#" data-toggle="modal" data-target="#10modal"></a></td>			
+		<td style="background-color:{{classTaken.15}}" id = "15" {{classTaken.15}}>
+			<div style="display: inline;" id="15Info">{{courseNames.15}} <br><br> {{courseId.15}} <br><br> {{courseCredits.15}} Credits <br><br> Your grade is: Did not Take</div>			
+			<a href="#" data-toggle="modal" data-target="#15modal"></a></td>	
+		<td style="background-color:{{classTaken.20}}" id = "20" {{classTaken.20}}>
+			<div style="display: inline;" id="20Info">{{courseNames.20}} <br><br> {{courseId.20}} <br><br> {{courseCredits.20}} Credits <br><br> Your grade is: Did not Take</div>			
+			<a href="#" data-toggle="modal" data-target="#20modal"></a></td>
+		<td style="background-color:{{classTaken.25}}" id = "25" {{classTaken.25}}>
+			<div style="display: inline;" id="25Info">{{courseNames.25}} <br><br> {{courseId.25}} <br><br> {{courseCredits.25}} Credits <br><br> Your grade is: Did not Take</div>			
+			<a href="#" data-toggle="modal" data-target="#25modal"></a></td>
+		<td style="background-color:{{classTaken.30}}" id = "30" {{classTaken.30}}>
+			<div style="display: inline;" id="30Info">{{courseNames.30}} <br><br> {{courseId.30}} <br><br> {{courseCredits.30}} Credits <br><br> Your grade is: Did not Take</div>			
+			<a href="#" data-toggle="modal" data-target="#30modal"></a></td>
+		<td style="background-color:{{classTaken.35}}" id = "35" {{classTaken.35}}>
+			<div style="display: inline;" id="35Info">{{courseNames.35}} <br><br> {{courseId.35}} <br><br> {{courseCredits.35}} Credits <br><br> Your grade is: Did not Take</div>			
+			<a href="#" data-toggle="modal" data-target="#35modal"></a></td>
 	</tr>
 	<tr>
-		<td onclick="changeColor(this)" style="background-color:{{classTaken.2}}" id = "Physics 1" {{classTaken.2}}>{{courseNames.2}} <br><br> {{courseId.2}} <br><br> {{courseCredits.2}} Credits</td>
-
-		<td onclick="changeColor(this)" style="background-color:{{classTaken.7}}" id = "Physics 2" {{classTaken.7}}>{{courseNames.7}} <br><br> {{courseId.7}} <br><br> {{courseCredits.7}} Credits</td>
-		
-		<td onclick="changeColor(this)" style="background-color:{{classTaken.12}}" id ="Differential Equations" {{classTaken.12}}>{{courseNames.12}} <br><br> {{courseId.12}} <br><br> {{courseCredits.12}} Credits</td>
-		<td onclick="changeColor(this)" style="background-color:{{classTaken.17}}" id = "Data Structures" {{classTaken.17}}>{{courseNames.17}} <br><br> {{courseId.17}} <br><br> {{courseCredits.17}} Credits</td>
-		<td onclick="changeColor(this)" style="background-color:{{classTaken.22}}" id = "Probability and Statistics" {{classTaken.22}}>{{courseNames.22}} <br><br> {{courseId.22}} <br><br> {{courseCredits.22}} Credits</td>
-		<td onclick="changeColor(this)" style="background-color:{{classTaken.27}}" id = "Technical Elective 1" {{classTaken.27}}>{{courseNames.27}} <br><br> {{courseId.27}} <br><br> {{courseCredits.27}} Credits</td>
-		<td onclick="changeColor(this)" style="background-color:{{classTaken.32}}" id = "Software Engineering" {{classTaken.32}}>{{courseNames.32}} <br><br> {{courseId.32}} <br><br> {{courseCredits.32}} Credits</td>
-		<td onclick="changeColor(this)" style="background-color:{{classTaken.37}}" id = "Technical Elective 3" {{classTaken.37}}>{{courseNames.37}} <br><br> {{courseId.37}} <br><br> {{courseCredits.37}} Credits</td>
+		<td style="background-color:{{classTaken.1}}" id = "1" {{classTaken.1}}>
+			<div style="display: inline;" id="1Info">{{courseNames.1}} <br><br> {{courseId.1}} <br><br> {{courseCredits.1}} Credits <br><br> Your grade is: Did not Take</div>			
+			<a href="#" data-toggle="modal" data-target="#1modal"></a>/td>
+		<td style="background-color:{{classTaken.6}}" id = "6" {{classTaken.6}}>
+			<div style="display: inline;" id="6Info">{{courseNames.6}} <br><br> {{courseId.6}} <br><br> {{courseCredits.6}} Credits <br><br> Your grade is: Did not Take</div>			
+			<a href="#" data-toggle="modal" data-target="#6modal"></a>/td>
+		<td style="background-color:{{classTaken.11}}" id = "11" {{classTaken.11}}>
+			<div style="display: inline;" id="11Info">{{courseNames.11}} <br><br> {{courseId.11}} <br><br> {{courseCredits.11}} Credits <br><br> Your grade is: Did not Take</div>			
+			<a href="#" data-toggle="modal" data-target="#11modal"></a>/td>
+		<td style="background-color:{{classTaken.16}}" id = "16" {{classTaken.16}}>
+			<div style="display: inline;" id="16Info">{{courseNames.16}} <br><br> {{courseId.16}} <br><br> {{courseCredits.16}} Credits <br><br> Your grade is: Did not Take</div>			
+			<a href="#" data-toggle="modal" data-target="#16modal"></a>/td>
+		<td style="background-color:{{classTaken.21}}" id = "21" {{classTaken.21}}>
+			<div style="display: inline;" id="21Info">{{courseNames.21}} <br><br> {{courseId.21}} <br><br> {{courseCredits.21}} Credits <br><br> Your grade is: Did not Take</div>			
+			<a href="#" data-toggle="modal" data-target="#21modal"></a>/td>
+		<td style="background-color:{{classTaken.26}}" id = "26" {{classTaken.26}}>
+			<div style="display: inline;" id="26Info">{{courseNames.26}} <br><br> {{courseId.26}} <br><br> {{courseCredits.26}} Credits <br><br> Your grade is: Did not Take</div>			
+			<a href="#" data-toggle="modal" data-target="#26modal"></a>/td>
+		<td style="background-color:{{classTaken.31}}" id = "31" {{classTaken.31}}>
+			<div style="display: inline;" id="31Info">{{courseNames.31}} <br><br> {{courseId.31}} <br><br> {{courseCredits.31}} Credits <br><br> Your grade is: Did not Take</div>			
+			<a href="#" data-toggle="modal" data-target="#31modal"></a>/td>
+		<td style="background-color:{{classTaken.36}}" id = "36" {{classTaken.36}}>
+			<div style="display: inline;" id="36Info">{{courseNames.36}} <br><br> {{courseId.36}} <br><br> {{courseCredits.36}} Credits <br><br> Your grade is: Did not Take</div>			
+			<a href="#" data-toggle="modal" data-target="#36modal"></a>/td>
 	</tr>
 	<tr>
 		<td onclick="changeColor(this)" style="background-color:{{classTaken.3}}" id = "Chemistry 1" {{classTaken.3}}>{{courseNames.3}} <br><br> {{courseId.3}} <br><br> {{courseCredits.3}} Credits</td>
@@ -134,17 +134,17 @@ function changeColor(id) {
 		<td onclick="changeColor(this)" style="background-color:{{classTaken.25}}" id = "Humanities/Social Science 4" {{classTaken.25}}>{{courseNames.25}} <br><br> {{courseId.25}} <br><br> {{courseCredits.25}} Credits</td>
 		<td onclick="changeColor(this)" style="background-color:{{classTaken.30}}" id = "Humanities/Social Science 5" {{classTaken.30}}>{{courseNames.30}} <br><br> {{courseId.30}} <br><br> {{courseCredits.30}} Credits</td>
 		<td onclick="changeColor(this)" style="background-color:{{classTaken.35}}" id = "Humanities/Social Science 6" {{classTaken.35}}>{{courseNames.35}} <br><br> {{courseId.35}} <br><br> {{courseCredits.35}} Credits</td>
-		<td onclick="changeColor(this)" style="background-color:{{classTaken.40}}" id = "Open Elective 2" {{classTaken.40}}>{{courseNames.40}} <br><br> {{courseId.40}} <br><br> {{courseCredits.40}} Credits</td>
+		<td onclick="changeColor(this)" style="background-color:{{classTaken.0}}" id = "Open Elective 2" {{classTaken.0}}>{{courseNames.0}} <br><br> {{courseId.0}} <br><br> {{courseCredits.0}} Credits</td>
 	</tr>
 </table>
 
-    <div class="modal fade" id="c1r1modal" tabindex="-1" role="dialog" aria-labelledby="smallModal" aria-hidden="true">
+    <div class="modal fade" id="0modal" tabindex="-1" role="dialog" aria-labelledby="smallModal" aria-hidden="true">
       <div class="modal-dialog modal-sm">
-        <div class="modal-content">
+        <div class="modal-content">          
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             <h4 class="modal-title" id="myModalLabel">Update Class Information</h4>
-          </div>
+          </div>          
           <div class="modal-body">
           	<table>
           		<tr>
@@ -160,7 +160,7 @@ function changeColor(id) {
       				Course Name:
       				</td>
       				<td>
-      					<input id = "c1r1coursename" value="{{courseNames.1}}" />
+      					<input id = "0coursename" value="{{courseNames.0}}" />
       				</td>
       			</tr>
       			<tr>
@@ -168,7 +168,7 @@ function changeColor(id) {
       				Course ID:
       				</td>
       				<td>
-      					<input id = "c1r1courseid" value="{{courseId.1}}" />
+      					<input id = "0courseid" value="{{courseId.0}}" />
       				</td>
       			</tr>         			   
       			<tr>
@@ -176,7 +176,7 @@ function changeColor(id) {
       				Credits:
       				</td>
       				<td>
-      					<select id = "c1r1coursecredits">
+      					<select id = "0coursecredits">
           					<option>1</option>
           					<option>2</option>
 			          		<option>3</option>
@@ -190,7 +190,7 @@ function changeColor(id) {
           			Grade:
           			</td>
           			<td>
-      					<select id = "c1r1sel">
+      					<select id = "0sel">
           					<option>A+</option>
           					<option>A</option>
 			          		<option>A-</option>
@@ -212,11 +212,96 @@ function changeColor(id) {
       		</table>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button onclick="changeColor(c1r1)" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+            <button onclick="changeColor(0)" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
           </div>
         </div>
       </div>
     </div>
+	</div>
+
+    <div class="modal fade" id="1modal" tabindex="-1" role="dialog" aria-labelledby="smallModal" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">          
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Update Class Information</h4>
+          </div>          
+          <div class="modal-body">
+          	<table>
+          		<tr>
+          			<td>
+          				Entry
+          			</td>
+          			<td>
+          				Value
+          			</td>
+          		</tr>
+      			<tr>
+      				<td>
+      				Course Name:
+      				</td>
+      				<td>
+      					<input id = "1coursename" value="{{courseNames.5}}" />
+      				</td>
+      			</tr>
+      			<tr>
+      				<td>
+      				Course ID:
+      				</td>
+      				<td>
+      					<input id = "1courseid" value="{{courseId.5}}" />
+      				</td>
+      			</tr>         			   
+      			<tr>
+      				<td>
+      				Credits:
+      				</td>
+      				<td>
+      					<select id = "1coursecredits">
+          					<option>1</option>
+          					<option>2</option>
+			          		<option>3</option>
+          					<option>4</option>
+     			     		<option>5</option>
+      					</select>
+      				</td>
+      			</tr>
+          		<tr>
+          			<td>
+          			Grade:
+          			</td>
+          			<td>
+      					<select id = "1sel">
+          					<option>A+</option>
+          					<option>A</option>
+			          		<option>A-</option>
+          					<option>B+</option>
+     			     		<option>B</option>
+    			      		<option>B-</option>
+    			      		<option>C+</option>
+    			      		<option>C</option>
+    			      		<option>C-</option>
+          					<option>D+</option>
+      			    		<option>D</option>
+          					<option>D-</option>
+          					<option>F</option>
+          					<option>Did not Take</option>
+      					</select>
+      				</td>
+      			</tr>   		
+      		
+      		</table>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button onclick="changeColor(1)" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+
+
+
  
 
     <script src="https://code.jquery.com/jquery.js"></script>

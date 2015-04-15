@@ -34,11 +34,36 @@ class Cover(webapp2.RequestHandler):
 
   def post(self):
     user = users.get_current_user()
-    course1 = Course(courseTaken=False, courseName="Web App", courseId="CS 1520", courseCredits=3, courseGrade="A")
-    falseBoolList = [False] * 40
-    coursesList = [course1] * 40
-    regUser = Student(email = user.email(), major = self.request.get('Major'), classTaken = falseBoolList, courses = coursesList)
+
+    usermajor = self.request.get('Major')
+    majorCourses = usermajor.lower()
+    majorCourses = majorCourses.replace(" ", "")
+    majorCourses = majorCourses + ".csv"
+
+    if(majorCourses == ".csv"):
+      majorCourses = "computerengineering.csv"
+        
+    usercourses =[]
+    falseBoolList = [False] * 40      
+    #file open
+    #      open(majorCourses, 'rU'), dialect=csv.excel_tab
+    # with open(majorCourses, 'r') as csvfile:
+    #   csvreader = csv.reader(csvfile, dialect='excel')
+    with open(majorCourses, 'rU') as csvfile:
+      csvreader = csv.reader(csvfile, dialect='excel')
+      courseList = list(csvreader)      
+      i = -1
+      for row in courseList:   
+        if (i == -1):
+          i = i+1
+        else:
+          tempCourse = Course(courseTaken=False, courseName=row[0], courseId=row[1], courseCredits=int(row[2]), courseGrade="Did not Take")
+          usercourses.append(tempCourse)
+          i = i+1
+    
+    regUser = Student(email = user.email(), major = usermajor, classTaken = falseBoolList, courses = usercourses)
     regUser.put()
+
     user = users.get_current_user()
     if(user):
       q = Student.query(Student.email == user.email())
