@@ -8,6 +8,7 @@ from google.appengine.ext import db
 from google.appengine.api import users
 from google.appengine.ext.webapp import template
 from classes.student import Student
+from classes.student import Course
 import rendertemplate
 import rendertable
 import logging
@@ -49,46 +50,57 @@ class Main(webapp2.RequestHandler):
     user = users.get_current_user()
       
     q = Student.query(Student.email == user.email())
-    p = q.get()
-
+    
     #TODO Store them into db!
+    cellnumber = int(self.request.get('cellnumber'))
     courseTaken = bool(self.request.get('coursetaken'))
     courseName = str(self.request.get('coursename'))
     courseId = str(self.request.get('courseid'))
-    credits = int(self.request.get('credits'))
-    grade = str(self.request.get('grade'))
+    courseCredits = int(self.request.get('credits'))
+    courseGrade = str(self.request.get('grade'))
 
-    with open("computerengineering.csv", 'r') as csvfile:
-      csvreader = csv.reader(csvfile, dialect='excel')
-      courseList = list(csvreader)
-      courseNames = {}
+    if q.get():
+      p = q.get()
+      #p.userclassestaken[cellnumber]=courseTaken
+      p.courses[cellnumber].courseTaken = courseTaken      
+      p.courses[cellnumber].courseName= courseName
+      p.courses[cellnumber].courseId = courseId      
+      p.courses[cellnumber].courseCredits= courseCredits
+      p.courses[cellnumber].courseGrade = courseGrade
+      p.put()
+      render_table(self, q)
 
-    courseCredits = {}
-    courseId = {}
-    tableElement = {}    
-    # addCourse = self.request.get('courseCompleted')
-    temp = self.request.arguments().pop()
-    addCourses = temp.split("|")
-    # logging.info("temp is %s", temp)
+    # with open("computerengineering.csv", 'r') as csvfile:
+    #   csvreader = csv.reader(csvfile, dialect='excel')
+    #   courseList = list(csvreader)
+    #   courseNames = {}
 
-    for addCourse in addCourses:      
-      i = 0
-      for row in courseList:
-        courseNames[i] = row[0]
-        #logging.info("courseNames[i] is %s", courseNames[i])
-        if courseNames[i] == addCourse :
-          courses_taken = db.GqlQuery("SELECT * FROM Student WHERE email = :email", email=user.email())
-          for e in courses_taken:
-            if(len(e.classTaken) != 40):
-              e.classTaken = [False]*40
-            if e.classTaken[i-1] == False:
-              e.classTaken[i-1] = True
-            else:
-              e.classTaken[i-1] = False
-            logging.info("on or off: %r", e.classTaken[i-1]) 
-            db.put(e)
-        i = i+1
-      courses_taken = db.GqlQuery("SELECT * FROM Student WHERE email = :email", email=user.email())
-      for e in courses_taken:
-        logging.info("class is taken: %r", e.classTaken[1])
-    render_table(self,q)
+    # courseCredits = {}
+    # courseId = {}
+    # tableElement = {}    
+    # # addCourse = self.request.get('courseCompleted')
+    # temp = self.request.arguments().pop()
+    # addCourses = temp.split("|")
+    # # logging.info("temp is %s", temp)
+
+    # for addCourse in addCourses:      
+    #   i = 0
+    #   for row in courseList:
+    #     courseNames[i] = row[0]
+    #     #logging.info("courseNames[i] is %s", courseNames[i])
+    #     if courseNames[i] == addCourse :
+    #       courses_taken = db.GqlQuery("SELECT * FROM Student WHERE email = :email", email=user.email())
+    #       for e in courses_taken:
+    #         if(len(e.classTaken) != 40):
+    #           e.classTaken = [False]*40
+    #         if e.classTaken[i-1] == False:
+    #           e.classTaken[i-1] = True
+    #         else:
+    #           e.classTaken[i-1] = False
+    #         logging.info("on or off: %r", e.classTaken[i-1]) 
+    #         db.put(e)
+    #     i = i+1
+    #   courses_taken = db.GqlQuery("SELECT * FROM Student WHERE email = :email", email=user.email())
+    #   for e in courses_taken:
+    #     logging.info("class is taken: %r", e.classTaken[1])
+    

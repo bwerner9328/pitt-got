@@ -1,41 +1,1 @@
-course name,course id,course credits,Expected Semester
-Engineering Analysis,Blah Blah,3,1
-Physics 1,PHYS 0174,4,1
-Chemistry 1,CHEM 0960/CHEM 0110 (w/ lab),3 or 4,1
-Calculus 1,MATH 0220,4,1
-Humanities/Social Science,,,1
-Engineering Computing,ENGR 0012,3,2
-Physics 2,PHYS 0175,,2
-Chemistry 2,CHEM 0970/CHEM 0120 (no lab),4 or 3,2
-Calculus 2,MATH 0230,4,2
-Humanities/Social Science,,,2
-Digital Logic,COE 0132,3,3
-Differential Equations,MATH 0290,3,3
-Introduction to JAVA,COE 0401,4,3
-Linear Systems and Circuits 1,COE 0031,3,3
-Humanities/Social Science,,,3
-Computer Organization,COE 0147/CS 0447,3,4
-Data Structures,COE 0445,3,4
-Digital Laboratory,COE 0501,3,4
-Linear Systems and Circuits 2,COE 0041,3,4
-Communications Skills Elective,,3,4
-Systems Software,COE 0449,3,5
-Probability and Statistics,ENGR 0020,4,5
-Algorithms,COE 1501,3,5
-Linear Algebra,MATH 0280,3,5
-Humanities/Social Science,,,5
-Computer Architecture,COE 1541,3,6
-Technical Elective,,,6
-Advanced Digital Design,COE 1502,3,6
-COE Advanced Elective,,,6
-Humanities/Social Science,,,6
-Technical Elective,,,7
-Software Engineering,COE 1186,4,7
-COE Advanced Elective,,,7
-COE Advanced Elective,,,7
-Humanities/Social Science,,,7
-COE Design Elective,,,8
-Technical Elective,,,8
-Open Elective,,,8
-COE Advanced Elective,,,8
-Open Elective,,,8
+course name,course id,course credits,Expected SemesterEngineering Analysis,Blah Blah,3,1Physics 1,PHYS 0174,4,1Chemistry 1,CHEM 0960/CHEM 0110 (w/ lab),3,1Calculus 1,MATH 0220,4,1Humanities/Social Science,,3,1Engineering Computing,ENGR 0012,3,2Physics 2,PHYS 0175,3,2Chemistry 2,CHEM 0970/CHEM 0120 (no lab),3,2Calculus 2,MATH 0230,4,2Humanities/Social Science,,3,2Digital Logic,COE 0132,3,3Differential Equations,MATH 0290,3,3Introduction to JAVA,COE 0401,4,3Linear Systems and Circuits 1,COE 0031,3,3Humanities/Social Science,,3,3Computer Organization,COE 0147/CS 0447,3,4Data Structures,COE 0445,3,4Digital Laboratory,COE 0501,3,4Linear Systems and Circuits 2,COE 0041,3,4Communications Skills Elective,,3,4Systems Software,COE 0449,3,5Probability and Statistics,ENGR 0020,4,5Algorithms,COE 1501,3,5Linear Algebra,MATH 0280,3,5Humanities/Social Science,,3,5Computer Architecture,COE 1541,3,6Technical Elective,,3,6Advanced Digital Design,COE 1502,3,6COE Advanced Elective,,3,6Humanities/Social Science,,3,6Technical Elective,,3,7Software Engineering,COE 1186,4,7COE Advanced Elective,,3,7COE Advanced Elective,,3,7Humanities/Social Science,,3,7COE Design Elective,,3,8Technical Elective,,3,8Open Elective,,3,8COE Advanced Elective,,3,8Open Elective,,3,8

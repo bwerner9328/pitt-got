@@ -25,7 +25,6 @@ class Course(ndb.Model):
   courseId = ndb.StringProperty()
   courseCredits = ndb.IntegerProperty()
   courseGrade = ndb.StringProperty()
-
 #The data storage for student info
 class Student(ndb.Model) :
   email = ndb.StringProperty()
@@ -39,5 +38,3 @@ class Student(ndb.Model) :
   events = ndb.StructuredProperty(Events, repeated=True)
   courses = ndb.StructuredProperty(Course, repeated=True)
   curid = ndb.IntegerProperty()
-
-
