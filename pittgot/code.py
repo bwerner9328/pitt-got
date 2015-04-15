@@ -16,7 +16,7 @@ from classes.logout import Logout
 from classes.cover import Cover
 from classes.settings import Settings
 from classes.courses import Courses
-from classes.profile import Profile
+from classes.gpa import GPA
 from classes.contact import Contact
 from classes.schedule import Schedule
 from classes.storeimg import StoreImg
@@ -28,7 +28,7 @@ app = webapp2.WSGIApplication([
   ('/logout', Logout),
   ('/settings', Settings),
   ('/courses', Courses),
-  ('/profile', Profile),
+  ('/gpa', GPA),
   ('/contact', Contact),
   ('/sign', StoreImg),
   ('/schedule', Schedule),
