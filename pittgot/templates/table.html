@@ -44,7 +44,7 @@ function changeColor(idd) {
 
 	var allChanges = 'cellnumber='+parseInt(id.id)+'&coursetaken='+Boolean(taken)+'&coursename='+String(courseName)+
 	"&courseid="+String(courseId)+"&credits="+parseInt(credits, 10)+"&grade="+String(grade);
-	alert(taken);
+	//alert(taken);
 	var request = new XMLHttpRequest();	
 	request.open("POST","/main",true);
 	request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
@@ -692,8 +692,6 @@ function changeColor(idd) {
 
  
 
-
-
 <div class="modal fade" id="6modal" tabindex="-1" role="dialog" aria-labelledby="smallModal" aria-hidden="true">
       <div class="modal-dialog modal-sm">
         <div class="modal-content">          
@@ -775,6 +773,1095 @@ function changeColor(idd) {
     </div>
 	</div>
 
+
+<div class="modal fade" id="7modal" tabindex="-1" role="dialog" aria-labelledby="smallModal" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">          
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Update Class Information</h4>
+          </div>          
+          <div class="modal-body">
+          	<table>
+          		<tr>
+          			<td>
+          				Entry
+          			</td>
+          			<td>
+          				Value
+          			</td>
+          		</tr>
+      			<tr>
+      				<td>
+      				Course Name:
+      				</td>
+      				<td>
+      					<input id = "7coursename" value="{{courseNames.7}}" />
+      				</td>
+      			</tr>
+      			<tr>
+      				<td>
+      				Course ID:
+      				</td>
+      				<td>
+      					<input id = "7courseid" value="{{courseId.7}}" />
+      				</td>
+      			</tr>         			   
+      			<tr>
+      				<td>
+      				Credits:
+      				</td>
+      				<td>
+      					<select id = "7coursecredits">
+          					<option>1</option>
+          					<option>2</option>
+			          		<option>3</option>
+          					<option>4</option>
+     			     		<option>5</option>
+      					</select>
+      				</td>
+      			</tr>
+          		<tr>
+          			<td>
+          			Grade:
+          			</td>
+          			<td>
+      					<select id = "7sel">
+          					<option>A+</option>
+          					<option>A</option>
+			          		<option>A-</option>
+          					<option>B+</option>
+     			     		<option>B</option>
+    			      		<option>B-</option>
+    			      		<option>C+</option>
+    			      		<option>C</option>
+    			      		<option>C-</option>
+          					<option>D+</option>
+      			    		<option>D</option>
+          					<option>D-</option>
+          					<option>F</option>
+          					<option>Did not Take</option>
+      					</select>
+      				</td>
+      			</tr>   		
+      		
+      		</table>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button onclick="changeColor('7')" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+
+
+
+	<div class="modal fade" id="8modal" tabindex="-1" role="dialog" aria-labelledby="smallModal" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">          
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Update Class Information</h4>
+          </div>          
+          <div class="modal-body">
+          	<table>
+          		<tr>
+          			<td>
+          				Entry
+          			</td>
+          			<td>
+          				Value
+          			</td>
+          		</tr>
+      			<tr>
+      				<td>
+      				Course Name:
+      				</td>
+      				<td>
+      					<input id = "8coursename" value="{{courseNames.8}}" />
+      				</td>
+      			</tr>
+      			<tr>
+      				<td>
+      				Course ID:
+      				</td>
+      				<td>
+      					<input id = "8courseid" value="{{courseId.8}}" />
+      				</td>
+      			</tr>         			   
+      			<tr>
+      				<td>
+      				Credits:
+      				</td>
+      				<td>
+      					<select id = "8coursecredits">
+          					<option>1</option>
+          					<option>2</option>
+			          		<option>3</option>
+          					<option>4</option>
+     			     		<option>5</option>
+      					</select>
+      				</td>
+      			</tr>
+          		<tr>
+          			<td>
+          			Grade:
+          			</td>
+          			<td>
+      					<select id = "8sel">
+          					<option>A+</option>
+          					<option>A</option>
+			          		<option>A-</option>
+          					<option>B+</option>
+     			     		<option>B</option>
+    			      		<option>B-</option>
+    			      		<option>C+</option>
+    			      		<option>C</option>
+    			      		<option>C-</option>
+          					<option>D+</option>
+      			    		<option>D</option>
+          					<option>D-</option>
+          					<option>F</option>
+          					<option>Did not Take</option>
+      					</select>
+      				</td>
+      			</tr>   		
+      		
+      		</table>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button onclick="changeColor('8')" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+
+	<div class="modal fade" id="9modal" tabindex="-1" role="dialog" aria-labelledby="smallModal" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">          
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Update Class Information</h4>
+          </div>          
+          <div class="modal-body">
+          	<table>
+          		<tr>
+          			<td>
+          				Entry
+          			</td>
+          			<td>
+          				Value
+          			</td>
+          		</tr>
+      			<tr>
+      				<td>
+      				Course Name:
+      				</td>
+      				<td>
+      					<input id = "9coursename" value="{{courseNames.9}}" />
+      				</td>
+      			</tr>
+      			<tr>
+      				<td>
+      				Course ID:
+      				</td>
+      				<td>
+      					<input id = "9courseid" value="{{courseId.9}}" />
+      				</td>
+      			</tr>         			   
+      			<tr>
+      				<td>
+      				Credits:
+      				</td>
+      				<td>
+      					<select id = "9coursecredits">
+          					<option>1</option>
+          					<option>2</option>
+			          		<option>3</option>
+          					<option>4</option>
+     			     		<option>5</option>
+      					</select>
+      				</td>
+      			</tr>
+          		<tr>
+          			<td>
+          			Grade:
+          			</td>
+          			<td>
+      					<select id = "9sel">
+          					<option>A+</option>
+          					<option>A</option>
+			          		<option>A-</option>
+          					<option>B+</option>
+     			     		<option>B</option>
+    			      		<option>B-</option>
+    			      		<option>C+</option>
+    			      		<option>C</option>
+    			      		<option>C-</option>
+          					<option>D+</option>
+      			    		<option>D</option>
+          					<option>D-</option>
+          					<option>F</option>
+          					<option>Did not Take</option>
+      					</select>
+      				</td>
+      			</tr>   		
+      		
+      		</table>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button onclick="changeColor('9')" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+
+
+	<!--  -->
+<!--  -->
+<!--  -->
+
+
+<div class="modal fade" id="10modal" tabindex="-1" role="dialog" aria-labelledby="smallModal" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">          
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Update Class Information</h4>
+          </div>          
+          <div class="modal-body">
+          	<table>
+          		<tr>
+          			<td>
+          				Entry
+          			</td>
+          			<td>
+          				Value
+          			</td>
+          		</tr>
+      			<tr>
+      				<td>
+      				Course Name:
+      				</td>
+      				<td>
+      					<input id = "10coursename" value="{{courseNames.10}}" />
+      				</td>
+      			</tr>
+      			<tr>
+      				<td>
+      				Course ID:
+      				</td>
+      				<td>
+      					<input id = "10courseid" value="{{courseId.10}}" />
+      				</td>
+      			</tr>         			   
+      			<tr>
+      				<td>
+      				Credits:
+      				</td>
+      				<td>
+      					<select id = "10coursecredits">
+          					<option>1</option>
+          					<option>2</option>
+			          		<option>3</option>
+          					<option>4</option>
+     			     		<option>5</option>
+      					</select>
+      				</td>
+      			</tr>
+          		<tr>
+          			<td>
+          			Grade:
+          			</td>
+          			<td>
+      					<select id = "10sel">
+          					<option>A+</option>
+          					<option>A</option>
+			          		<option>A-</option>
+          					<option>B+</option>
+     			     		<option>B</option>
+    			      		<option>B-</option>
+    			      		<option>C+</option>
+    			      		<option>C</option>
+    			      		<option>C-</option>
+          					<option>D+</option>
+      			    		<option>D</option>
+          					<option>D-</option>
+          					<option>F</option>
+          					<option>Did not Take</option>
+      					</select>
+      				</td>
+      			</tr>   		
+      		
+      		</table>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button onclick="changeColor('10')" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+
+
+	<div class="modal fade" id="11modal" tabindex="-1" role="dialog" aria-labelledby="smallModal" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">          
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Update Class Information</h4>
+          </div>          
+          <div class="modal-body">
+          	<table>
+          		<tr>
+          			<td>
+          				Entry
+          			</td>
+          			<td>
+          				Value
+          			</td>
+          		</tr>
+      			<tr>
+      				<td>
+      				Course Name:
+      				</td>
+      				<td>
+      					<input id = "11coursename" value="{{courseNames.11}}" />
+      				</td>
+      			</tr>
+      			<tr>
+      				<td>
+      				Course ID:
+      				</td>
+      				<td>
+      					<input id = "11courseid" value="{{courseId.11}}" />
+      				</td>
+      			</tr>         			   
+      			<tr>
+      				<td>
+      				Credits:
+      				</td>
+      				<td>
+      					<select id = "11coursecredits">
+          					<option>1</option>
+          					<option>2</option>
+			          		<option>3</option>
+          					<option>4</option>
+     			     		<option>5</option>
+      					</select>
+      				</td>
+      			</tr>
+          		<tr>
+          			<td>
+          			Grade:
+          			</td>
+          			<td>
+      					<select id = "11sel">
+          					<option>A+</option>
+          					<option>A</option>
+			          		<option>A-</option>
+          					<option>B+</option>
+     			     		<option>B</option>
+    			      		<option>B-</option>
+    			      		<option>C+</option>
+    			      		<option>C</option>
+    			      		<option>C-</option>
+          					<option>D+</option>
+      			    		<option>D</option>
+          					<option>D-</option>
+          					<option>F</option>
+          					<option>Did not Take</option>
+      					</select>
+      				</td>
+      			</tr>   		
+      		
+      		</table>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button onclick="changeColor('11')" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+
+
+	<div class="modal fade" id="12modal" tabindex="-1" role="dialog" aria-labelledby="smallModal" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">          
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Update Class Information</h4>
+          </div>          
+          <div class="modal-body">
+          	<table>
+          		<tr>
+          			<td>
+          				Entry
+          			</td>
+          			<td>
+          				Value
+          			</td>
+          		</tr>
+      			<tr>
+      				<td>
+      				Course Name:
+      				</td>
+      				<td>
+      					<input id = "12coursename" value="{{courseNames.12}}" />
+      				</td>
+      			</tr>
+      			<tr>
+      				<td>
+      				Course ID:
+      				</td>
+      				<td>
+      					<input id = "12courseid" value="{{courseId.12}}" />
+      				</td>
+      			</tr>         			   
+      			<tr>
+      				<td>
+      				Credits:
+      				</td>
+      				<td>
+      					<select id = "12coursecredits">
+          					<option>1</option>
+          					<option>2</option>
+			          		<option>3</option>
+          					<option>4</option>
+     			     		<option>5</option>
+      					</select>
+      				</td>
+      			</tr>
+          		<tr>
+          			<td>
+          			Grade:
+          			</td>
+          			<td>
+      					<select id = "12sel">
+          					<option>A+</option>
+          					<option>A</option>
+			          		<option>A-</option>
+          					<option>B+</option>
+     			     		<option>B</option>
+    			      		<option>B-</option>
+    			      		<option>C+</option>
+    			      		<option>C</option>
+    			      		<option>C-</option>
+          					<option>D+</option>
+      			    		<option>D</option>
+          					<option>D-</option>
+          					<option>F</option>
+          					<option>Did not Take</option>
+      					</select>
+      				</td>
+      			</tr>   		
+      		
+      		</table>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button onclick="changeColor('12')" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+
+
+	<div class="modal fade" id="13modal" tabindex="-1" role="dialog" aria-labelledby="smallModal" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">          
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Update Class Information</h4>
+          </div>          
+          <div class="modal-body">
+          	<table>
+          		<tr>
+          			<td>
+          				Entry
+          			</td>
+          			<td>
+          				Value
+          			</td>
+          		</tr>
+      			<tr>
+      				<td>
+      				Course Name:
+      				</td>
+      				<td>
+      					<input id = "13coursename" value="{{courseNames.13}}" />
+      				</td>
+      			</tr>
+      			<tr>
+      				<td>
+      				Course ID:
+      				</td>
+      				<td>
+      					<input id = "13courseid" value="{{courseId.13}}" />
+      				</td>
+      			</tr>         			   
+      			<tr>
+      				<td>
+      				Credits:
+      				</td>
+      				<td>
+      					<select id = "13coursecredits">
+          					<option>1</option>
+          					<option>2</option>
+			          		<option>3</option>
+          					<option>4</option>
+     			     		<option>5</option>
+      					</select>
+      				</td>
+      			</tr>
+          		<tr>
+          			<td>
+          			Grade:
+          			</td>
+          			<td>
+      					<select id = "13sel">
+          					<option>A+</option>
+          					<option>A</option>
+			          		<option>A-</option>
+          					<option>B+</option>
+     			     		<option>B</option>
+    			      		<option>B-</option>
+    			      		<option>C+</option>
+    			      		<option>C</option>
+    			      		<option>C-</option>
+          					<option>D+</option>
+      			    		<option>D</option>
+          					<option>D-</option>
+          					<option>F</option>
+          					<option>Did not Take</option>
+      					</select>
+      				</td>
+      			</tr>   		
+      		
+      		</table>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button onclick="changeColor('13')" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+
+    
+<div class="modal fade" id="14modal" tabindex="-1" role="dialog" aria-labelledby="smallModal" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">          
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Update Class Information</h4>
+          </div>          
+          <div class="modal-body">
+          	<table>
+          		<tr>
+          			<td>
+          				Entry
+          			</td>
+          			<td>
+          				Value
+          			</td>
+          		</tr>
+      			<tr>
+      				<td>
+      				Course Name:
+      				</td>
+      				<td>
+      					<input id = "14coursename" value="{{courseNames.14}}" />
+      				</td>
+      			</tr>
+      			<tr>
+      				<td>
+      				Course ID:
+      				</td>
+      				<td>
+      					<input id = "14courseid" value="{{courseId.14}}" />
+      				</td>
+      			</tr>         			   
+      			<tr>
+      				<td>
+      				Credits:
+      				</td>
+      				<td>
+      					<select id = "14coursecredits">
+          					<option>1</option>
+          					<option>2</option>
+			          		<option>3</option>
+          					<option>4</option>
+     			     		<option>5</option>
+      					</select>
+      				</td>
+      			</tr>
+          		<tr>
+          			<td>
+          			Grade:
+          			</td>
+          			<td>
+      					<select id = "14sel">
+          					<option>A+</option>
+          					<option>A</option>
+			          		<option>A-</option>
+          					<option>B+</option>
+     			     		<option>B</option>
+    			      		<option>B-</option>
+    			      		<option>C+</option>
+    			      		<option>C</option>
+    			      		<option>C-</option>
+          					<option>D+</option>
+      			    		<option>D</option>
+          					<option>D-</option>
+          					<option>F</option>
+          					<option>Did not Take</option>
+      					</select>
+      				</td>
+      			</tr>   		
+      		
+      		</table>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button onclick="changeColor('14')" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+
+
+	<div class="modal fade" id="15modal" tabindex="-1" role="dialog" aria-labelledby="smallModal" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">          
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Update Class Information</h4>
+          </div>          
+          <div class="modal-body">
+          	<table>
+          		<tr>
+          			<td>
+          				Entry
+          			</td>
+          			<td>
+          				Value
+          			</td>
+          		</tr>
+      			<tr>
+      				<td>
+      				Course Name:
+      				</td>
+      				<td>
+      					<input id = "15coursename" value="{{courseNames.15}}" />
+      				</td>
+      			</tr>
+      			<tr>
+      				<td>
+      				Course ID:
+      				</td>
+      				<td>
+      					<input id = "15courseid" value="{{courseId.15}}" />
+      				</td>
+      			</tr>         			   
+      			<tr>
+      				<td>
+      				Credits:
+      				</td>
+      				<td>
+      					<select id = "15coursecredits">
+          					<option>1</option>
+          					<option>2</option>
+			          		<option>3</option>
+          					<option>4</option>
+     			     		<option>5</option>
+      					</select>
+      				</td>
+      			</tr>
+          		<tr>
+          			<td>
+          			Grade:
+          			</td>
+          			<td>
+      					<select id = "15sel">
+          					<option>A+</option>
+          					<option>A</option>
+			          		<option>A-</option>
+          					<option>B+</option>
+     			     		<option>B</option>
+    			      		<option>B-</option>
+    			      		<option>C+</option>
+    			      		<option>C</option>
+    			      		<option>C-</option>
+          					<option>D+</option>
+      			    		<option>D</option>
+          					<option>D-</option>
+          					<option>F</option>
+          					<option>Did not Take</option>
+      					</select>
+      				</td>
+      			</tr>   		
+      		
+      		</table>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button onclick="changeColor('15')" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+
+ 
+
+<div class="modal fade" id="16modal" tabindex="-1" role="dialog" aria-labelledby="smallModal" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">          
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Update Class Information</h4>
+          </div>          
+          <div class="modal-body">
+          	<table>
+          		<tr>
+          			<td>
+          				Entry
+          			</td>
+          			<td>
+          				Value
+          			</td>
+          		</tr>
+      			<tr>
+      				<td>
+      				Course Name:
+      				</td>
+      				<td>
+      					<input id = "16coursename" value="{{courseNames.16}}" />
+      				</td>
+      			</tr>
+      			<tr>
+      				<td>
+      				Course ID:
+      				</td>
+      				<td>
+      					<input id = "16courseid" value="{{courseId.16}}" />
+      				</td>
+      			</tr>         			   
+      			<tr>
+      				<td>
+      				Credits:
+      				</td>
+      				<td>
+      					<select id = "16coursecredits">
+          					<option>1</option>
+          					<option>2</option>
+			          		<option>3</option>
+          					<option>4</option>
+     			     		<option>5</option>
+      					</select>
+      				</td>
+      			</tr>
+          		<tr>
+          			<td>
+          			Grade:
+          			</td>
+          			<td>
+      					<select id = "16sel">
+          					<option>A+</option>
+          					<option>A</option>
+			          		<option>A-</option>
+          					<option>B+</option>
+     			     		<option>B</option>
+    			      		<option>B-</option>
+    			      		<option>C+</option>
+    			      		<option>C</option>
+    			      		<option>C-</option>
+          					<option>D+</option>
+      			    		<option>D</option>
+          					<option>D-</option>
+          					<option>F</option>
+          					<option>Did not Take</option>
+      					</select>
+      				</td>
+      			</tr>   		
+      		
+      		</table>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button onclick="changeColor('16')" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+
+
+<div class="modal fade" id="17modal" tabindex="-1" role="dialog" aria-labelledby="smallModal" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">          
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Update Class Information</h4>
+          </div>          
+          <div class="modal-body">
+          	<table>
+          		<tr>
+          			<td>
+          				Entry
+          			</td>
+          			<td>
+          				Value
+          			</td>
+          		</tr>
+      			<tr>
+      				<td>
+      				Course Name:
+      				</td>
+      				<td>
+      					<input id = "17coursename" value="{{courseNames.17}}" />
+      				</td>
+      			</tr>
+      			<tr>
+      				<td>
+      				Course ID:
+      				</td>
+      				<td>
+      					<input id = "17courseid" value="{{courseId.17}}" />
+      				</td>
+      			</tr>         			   
+      			<tr>
+      				<td>
+      				Credits:
+      				</td>
+      				<td>
+      					<select id = "17coursecredits">
+          					<option>1</option>
+          					<option>2</option>
+			          		<option>3</option>
+          					<option>4</option>
+     			     		<option>5</option>
+      					</select>
+      				</td>
+      			</tr>
+          		<tr>
+          			<td>
+          			Grade:
+          			</td>
+          			<td>
+      					<select id = "17sel">
+          					<option>A+</option>
+          					<option>A</option>
+			          		<option>A-</option>
+          					<option>B+</option>
+     			     		<option>B</option>
+    			      		<option>B-</option>
+    			      		<option>C+</option>
+    			      		<option>C</option>
+    			      		<option>C-</option>
+          					<option>D+</option>
+      			    		<option>D</option>
+          					<option>D-</option>
+          					<option>F</option>
+          					<option>Did not Take</option>
+      					</select>
+      				</td>
+      			</tr>   		
+      		
+      		</table>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button onclick="changeColor('17')" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+
+
+
+	<div class="modal fade" id="18modal" tabindex="-1" role="dialog" aria-labelledby="smallModal" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">          
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Update Class Information</h4>
+          </div>          
+          <div class="modal-body">
+          	<table>
+          		<tr>
+          			<td>
+          				Entry
+          			</td>
+          			<td>
+          				Value
+          			</td>
+          		</tr>
+      			<tr>
+      				<td>
+      				Course Name:
+      				</td>
+      				<td>
+      					<input id = "18coursename" value="{{courseNames.18}}" />
+      				</td>
+      			</tr>
+      			<tr>
+      				<td>
+      				Course ID:
+      				</td>
+      				<td>
+      					<input id = "18courseid" value="{{courseId.18}}" />
+      				</td>
+      			</tr>         			   
+      			<tr>
+      				<td>
+      				Credits:
+      				</td>
+      				<td>
+      					<select id = "18coursecredits">
+          					<option>1</option>
+          					<option>2</option>
+			          		<option>3</option>
+          					<option>4</option>
+     			     		<option>5</option>
+      					</select>
+      				</td>
+      			</tr>
+          		<tr>
+          			<td>
+          			Grade:
+          			</td>
+          			<td>
+      					<select id = "18sel">
+          					<option>A+</option>
+          					<option>A</option>
+			          		<option>A-</option>
+          					<option>B+</option>
+     			     		<option>B</option>
+    			      		<option>B-</option>
+    			      		<option>C+</option>
+    			      		<option>C</option>
+    			      		<option>C-</option>
+          					<option>D+</option>
+      			    		<option>D</option>
+          					<option>D-</option>
+          					<option>F</option>
+          					<option>Did not Take</option>
+      					</select>
+      				</td>
+      			</tr>   		
+      		
+      		</table>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button onclick="changeColor('18')" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+
+	<div class="modal fade" id="19modal" tabindex="-1" role="dialog" aria-labelledby="smallModal" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">          
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Update Class Information</h4>
+          </div>          
+          <div class="modal-body">
+          	<table>
+          		<tr>
+          			<td>
+          				Entry
+          			</td>
+          			<td>
+          				Value
+          			</td>
+          		</tr>
+      			<tr>
+      				<td>
+      				Course Name:
+      				</td>
+      				<td>
+      					<input id = "19coursename" value="{{courseNames.19}}" />
+      				</td>
+      			</tr>
+      			<tr>
+      				<td>
+      				Course ID:
+      				</td>
+      				<td>
+      					<input id = "19courseid" value="{{courseId.19}}" />
+      				</td>
+      			</tr>         			   
+      			<tr>
+      				<td>
+      				Credits:
+      				</td>
+      				<td>
+      					<select id = "19coursecredits">
+          					<option>1</option>
+          					<option>2</option>
+			          		<option>3</option>
+          					<option>4</option>
+     			     		<option>5</option>
+      					</select>
+      				</td>
+      			</tr>
+          		<tr>
+          			<td>
+          			Grade:
+          			</td>
+          			<td>
+      					<select id = "19sel">
+          					<option>A+</option>
+          					<option>A</option>
+			          		<option>A-</option>
+          					<option>B+</option>
+     			     		<option>B</option>
+    			      		<option>B-</option>
+    			      		<option>C+</option>
+    			      		<option>C</option>
+    			      		<option>C-</option>
+          					<option>D+</option>
+      			    		<option>D</option>
+          					<option>D-</option>
+          					<option>F</option>
+          					<option>Did not Take</option>
+      					</select>
+      				</td>
+      			</tr>   		
+      		
+      		</table>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button onclick="changeColor('19')" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+
+
+
+<!--  -->
+<!--  -->
+<!--  -->
+
+
+
+
+
+
+
+
+
+<!--  -->
+<!--  -->
+<!--  -->
 
 
     <script src="https://code.jquery.com/jquery.js"></script>

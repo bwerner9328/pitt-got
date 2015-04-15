@@ -102,6 +102,7 @@
           request.open("POST","/scheduleDelete",true);
           request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
           request.send(allChanges);
+          document.getElementById("form-id").submit();
           return xmlHttp.responseText;
           
 
