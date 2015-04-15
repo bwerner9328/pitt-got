@@ -39,5 +39,3 @@ class Student(ndb.Model) :
   events = ndb.StructuredProperty(Events, repeated=True)
   courses = ndb.StructuredProperty(Course, repeated=True)
   curid = ndb.IntegerProperty()
-
-

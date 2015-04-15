@@ -8,6 +8,8 @@ from google.appengine.ext import db
 from google.appengine.api import users
 from google.appengine.ext.webapp import template
 from classes.student import Student
+from classes.student import Course
+
 import rendertemplate
 import rendertable
 
@@ -32,8 +34,10 @@ class Cover(webapp2.RequestHandler):
 
   def post(self):
     user = users.get_current_user()
+    course1 = Course(courseTaken=False, courseName="Web App", courseId="CS 1520", courseCredits=3, courseGrade="A")
     falseBoolList = [False] * 40
-    regUser = Student(email = user.email(), major = self.request.get('Major'), classTaken = falseBoolList)
+    coursesList = [course1] * 40
+    regUser = Student(email = user.email(), major = self.request.get('Major'), classTaken = falseBoolList, courses = coursesList)
     regUser.put()
     user = users.get_current_user()
     if(user):
