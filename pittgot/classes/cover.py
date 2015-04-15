@@ -33,10 +33,14 @@ class Cover(webapp2.RequestHandler):
   def post(self):
     user = users.get_current_user()
     falseBoolList = [False] * 40
-    regUser = Student(email = user.email(), major = self.request.get('Major'), classTaken = falseBoolList, gpa = float(self.request.get('GPA')), creditsTaken = int(self.request.get('creditsTaken')))
+    regUser = Student(email = user.email(), major = self.request.get('Major'), classTaken = falseBoolList)
     regUser.put()
     user = users.get_current_user()
     if(user):
       q = Student.query(Student.email == user.email())
       if q.get():
         render_table(self, q)
+    main_params = {
+    "name" : user.nickname()
+    }
+    render_template(self, 'main.html', main_params)

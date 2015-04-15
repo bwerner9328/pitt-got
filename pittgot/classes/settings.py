@@ -19,11 +19,8 @@ render_table = rendertable.render_table
 class Settings(webapp2.RequestHandler) :
     def get(self) :
       user = users.get_current_user()
-      q = Student.all()
-      q.filter("email =", user.email())
-      for p in q.run(limit=1):
-        usermajor = p.major
-        cur_user = p
+      q = Student.query(Student.email == user.email())
+      p = q.get()
 
       settings_params = {
       "name" : user.nickname(),

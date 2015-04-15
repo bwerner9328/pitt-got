@@ -34,4 +34,3 @@ app = webapp2.WSGIApplication([
   ('/schedule', Schedule),
   ('/scheduleDelete', ScheduleDelete)
 ])
-
