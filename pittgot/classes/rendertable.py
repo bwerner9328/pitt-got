@@ -49,15 +49,15 @@ def render_table(self, q):
   cur_user = p
 
   count = 0
-  for i in range(40):
+  for j in range(40):
     if(userclassestaken):
-      if(userclassestaken[i] == True):
-        tableElement[i] = "#a2edb1"
+      if(userclassestaken[j] == True):
+        tableElement[j] = "#a2edb1"
         count = count +1
       else:
-        tableElement[i] = "#ffffff"
+        tableElement[j] = "#ffffff"
     else:
-      tableElement[i] = "#ffffff"
+      tableElement[j] = "#ffffff"
 
   cur_user.gradProgress = 100*count/40
   cur_user.put()

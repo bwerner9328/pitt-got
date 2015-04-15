@@ -54,6 +54,7 @@ class Main(webapp2.RequestHandler):
     #TODO Store them into db!
     cellnumber = int(self.request.get('cellnumber'))
     courseTaken = bool(self.request.get('coursetaken'))
+    logging.info("README!!! " + str(courseTaken))
     courseName = str(self.request.get('coursename'))
     courseId = str(self.request.get('courseid'))
     courseCredits = int(self.request.get('credits'))

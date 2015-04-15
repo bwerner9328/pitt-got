@@ -17,30 +17,34 @@ function changeColor(idd) {
 	var gradeEle = document.getElementById(id.id+"sel");   		   		
 	var grade = gradeEle.options[gradeEle.selectedIndex].value;   				 
 
-	if (grade === null || grade === false) { id.innerHTML = before; }
-    if (grade === "") { id.innerHTML = before; }
- 	else 
- 	{ 
- 		document.getElementById(id.id+"Info").innerHTML = courseName + "<p></p>" 
- 		+ courseId + "<p></p>" + credits + " Credits" + "<p></p>" + "Your grade is: " + grade;     		
-    	id.style.backgroundColor="#a2edb1";
-    }
+	// if (grade === null || grade === false) { id.innerHTML = before; }
+ //    if (grade === "") { id.innerHTML = before; }
+ // 	else 
+ // 	{ 
+ // 		document.getElementById(id.id+"Info").innerHTML = courseName + "<p></p>" 
+ // 		+ courseId + "<p></p>" + credits + " Credits" + "<p></p>" + "Your grade is: " + grade;     		
+ //    	//id.style.backgroundColor="#a2edb1";
+ //    }
 
     var taken = true;
     if (grade === "Did not Take")
     {
     	taken = false; //alert("did not take");
     	id.style.backgroundColor="#ffffff";
+    	document.getElementById(id.id+"Info").innerHTML = courseName + "<p></p>" 
+ 		+ courseId + "<p></p>" + credits + " Credits" + "<p></p>" + "Your grade is: " + grade;  
     }
     else
     {
     	//if (id.style.backgroundColor == "rgb(162, 237, 177)") 
     	id.style.backgroundColor="#a2edb1"; //alert("take");
+    	document.getElementById(id.id+"Info").innerHTML = courseName + "<p></p>" 
+ 		+ courseId + "<p></p>" + credits + " Credits" + "<p></p>" + "Your grade is: " + grade;    	
     }
 
 	var allChanges = 'cellnumber='+parseInt(id.id)+'&coursetaken='+Boolean(taken)+'&coursename='+String(courseName)+
 	"&courseid="+String(courseId)+"&credits="+parseInt(credits, 10)+"&grade="+String(grade);
-	//alert(allChanges);
+	alert(taken);
 	var request = new XMLHttpRequest();	
 	request.open("POST","/main",true);
 	request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
