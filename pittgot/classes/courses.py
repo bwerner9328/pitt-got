@@ -15,11 +15,8 @@ render_template = rendertemplate.render_template
 class Courses(webapp2.RequestHandler) :
     def get(self):
       user = users.get_current_user()
-      q = Student.all()
-      q.filter("email =", user.email())
-      for p in q.run(limit=1):
-        usermajor = p.major
-        cur_user = p
+      q = Student.query(Student.email == user.email())
+      p = q.get()
       
       #file open
       with open("computerengineering.csv", 'r') as csvfile:

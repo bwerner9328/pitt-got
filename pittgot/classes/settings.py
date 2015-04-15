@@ -39,6 +39,6 @@ class Settings(webapp2.RequestHandler) :
           r.gpa = float(self.request.get('GPA'))
           r.creditsTaken = int(self.request.get('creditsTaken'))
           db.put(r)
-        q = Student.all()
-        q.filter("email =", user.email())
+        q = Student.query(Student.email == user.email())
+        p = q.get()
         render_table(self, q)

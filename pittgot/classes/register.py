@@ -20,12 +20,9 @@ class Register(webapp2.RequestHandler) :
   def post(self) :
     user = users.get_current_user()
     falseBoolList = [False] * 40
-    #result = db.GqlQuery("SELECT * FROM Student WHERE email = :email", email=user.email())
-    #if result:
-      #for r in result:
-        #r.major = self.request.get('Major')
-        #db.put(r)
-      #q = Student.all()
-      #q.filter("email =", user.email())
-      #render_table(self, q)
+    q = Student.query(Student.email == user.email())
+    p = q.get()
+    p.major = self.request.get('Major')
+    p.put()
+    render_table(self, q)
     return self.redirect("/")
