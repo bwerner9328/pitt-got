@@ -102,4 +102,4 @@ class Main(webapp2.RequestHandler):
     #   courses_taken = db.GqlQuery("SELECT * FROM Student WHERE email = :email", email=user.email())
     #   for e in courses_taken:
     #     logging.info("class is taken: %r", e.classTaken[1])
-    render_table(self,q)
+    

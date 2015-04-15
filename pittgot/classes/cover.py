@@ -69,7 +69,4 @@ class Cover(webapp2.RequestHandler):
       q = Student.query(Student.email == user.email())
       if q.get():
         render_table(self, q)
-    main_params = {
-    "name" : user.nickname()
-    }
-    render_template(self, 'main.html', main_params)
+
