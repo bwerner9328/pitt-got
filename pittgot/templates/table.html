@@ -5,7 +5,7 @@
 <script>
 function changeColor(idd) { 
 	var allChanges = "";
-	alert(idd);
+	//alert(idd);
 	var id = document.getElementById(idd);
 	var before = id.innerHTML;
 	var courseNameEle =document.getElementById(id.id+"coursename");
@@ -29,18 +29,18 @@ function changeColor(idd) {
     var taken = true;
     if (grade === "Did not Take")
     {
-    	taken = false; alert("did not take");
+    	taken = false; //alert("did not take");
     	id.style.backgroundColor="#ffffff";
     }
     else
     {
     	//if (id.style.backgroundColor == "rgb(162, 237, 177)") 
-    	id.style.backgroundColor="#a2edb1"; alert("take");
+    	id.style.backgroundColor="#a2edb1"; //alert("take");
     }
 
 	var allChanges = 'cellnumber='+parseInt(id.id)+'&coursetaken='+Boolean(taken)+'&coursename='+String(courseName)+
 	"&courseid="+String(courseId)+"&credits="+parseInt(credits, 10)+"&grade="+String(grade);
-	alert(allChanges);
+	//alert(allChanges);
 	var request = new XMLHttpRequest();	
 	request.open("POST","/main",true);
 	request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
@@ -129,68 +129,68 @@ function changeColor(idd) {
 			<div style="display: inline;" id="17Info">{{courseNames.17}} <br><br> {{courseId.17}} <br><br> {{courseCredits.17}} Credits <br><br> Your grade is: {{courseGrades.17}}</div>
 			<a href="#" data-toggle="modal" data-target="#17modal"></a></td>
 		<td style="background-color:{{classTaken.22}}" id = "22" {{classTaken.22}}>
-			<div style="display: inline;" id="22Info">{{courseNames.22}} <br><br> {{courseId.22}} <br><br> {{courseCredits.22}} Credits <br><br> Your grade is: Did not Take</div>
+			<div style="display: inline;" id="22Info">{{courseNames.22}} <br><br> {{courseId.22}} <br><br> {{courseCredits.22}} Credits <br><br> Your grade is: {{courseGrades.22}}</div>
 			<a href="#" data-toggle="modal" data-target="#22modal"></a></td>
 		<td style="background-color:{{classTaken.27}}" id = "27" {{classTaken.27}}>
-			<div style="display: inline;" id="27Info">{{courseNames.27}} <br><br> {{courseId.27}} <br><br> {{courseCredits.27}} Credits <br><br> Your grade is: Did not Take</div>
+			<div style="display: inline;" id="27Info">{{courseNames.27}} <br><br> {{courseId.27}} <br><br> {{courseCredits.27}} Credits <br><br> Your grade is: {{courseGrades.27}}</div>
 			<a href="#" data-toggle="modal" data-target="#27modal"></a></td>
 		<td style="background-color:{{classTaken.32}}" id = "32" {{classTaken.32}}>
-			<div style="display: inline;" id="32Info">{{courseNames.32}} <br><br> {{courseId.32}} <br><br> {{courseCredits.32}} Credits <br><br> Your grade is: Did not Take</div>
+			<div style="display: inline;" id="32Info">{{courseNames.32}} <br><br> {{courseId.32}} <br><br> {{courseCredits.32}} Credits <br><br> Your grade is: {{courseGrades.32}}</div>
 			<a href="#" data-toggle="modal" data-target="#32modal"></a></td>
 		<td style="background-color:{{classTaken.37}}" id = "37" {{classTaken.37}}>
-			<div style="display: inline;" id="37Info">{{courseNames.37}} <br><br> {{courseId.37}} <br><br> {{courseCredits.37}} Credits <br><br> Your grade is: Did not Take</div>
+			<div style="display: inline;" id="37Info">{{courseNames.37}} <br><br> {{courseId.37}} <br><br> {{courseCredits.37}} Credits <br><br> Your grade is: {{courseGrades.37}}</div>
 			<a href="#" data-toggle="modal" data-target="#37modal"></a></td>
 	</tr>
 	<tr>
 		<td style="background-color:{{classTaken.3}}" id = "3" {{classTaken.3}}>
-			<div style="display: inline;" id="3Info">{{courseNames.3}} <br><br> {{courseId.3}} <br><br> {{courseCredits.3}} Credits <br><br> Your grade is: Did not Take</div>
+			<div style="display: inline;" id="3Info">{{courseNames.3}} <br><br> {{courseId.3}} <br><br> {{courseCredits.3}} Credits <br><br> Your grade is: {{courseGrades.3}}</div>
 			<a href="#" data-toggle="modal" data-target="#3modal"></a></td>
 		<td style="background-color:{{classTaken.8}}" id = "8" {{classTaken.8}}>
-			<div style="display: inline;" id="8Info">{{courseNames.8}} <br><br> {{courseId.8}} <br><br> {{courseCredits.8}} Credits <br><br> Your grade is: Did not Take</div>
+			<div style="display: inline;" id="8Info">{{courseNames.8}} <br><br> {{courseId.8}} <br><br> {{courseCredits.8}} Credits <br><br> Your grade is: {{courseGrades.8}}</div>
 			<a href="#" data-toggle="modal" data-target="#8modal"></a></td>
 		<td style="background-color:{{classTaken.13}}" id = "13" {{classTaken.13}}>
-			<div style="display: inline;" id="13Info">{{courseNames.13}} <br><br> {{courseId.13}} <br><br> {{courseCredits.13}} Credits <br><br> Your grade is: Did not Take</div>
+			<div style="display: inline;" id="13Info">{{courseNames.13}} <br><br> {{courseId.13}} <br><br> {{courseCredits.13}} Credits <br><br> Your grade is: {{courseGrades.13}}</div>
 			<a href="#" data-toggle="modal" data-target="#13modal"></a></td>
 		<td style="background-color:{{classTaken.18}}" id = "18" {{classTaken.18}}>
-			<div style="display: inline;" id="18Info">{{courseNames.18}} <br><br> {{courseId.18}} <br><br> {{courseCredits.18}} Credits <br><br> Your grade is: Did not Take</div>
+			<div style="display: inline;" id="18Info">{{courseNames.18}} <br><br> {{courseId.18}} <br><br> {{courseCredits.18}} Credits <br><br> Your grade is: {{courseGrades.18}}</div>
 			<a href="#" data-toggle="modal" data-target="#18modal"></a></td>
 		<td style="background-color:{{classTaken.23}}" id = "23" {{classTaken.23}}>
-			<div style="display: inline;" id="23Info">{{courseNames.23}} <br><br> {{courseId.23}} <br><br> {{courseCredits.23}} Credits <br><br> Your grade is: Did not Take</div>
+			<div style="display: inline;" id="23Info">{{courseNames.23}} <br><br> {{courseId.23}} <br><br> {{courseCredits.23}} Credits <br><br> Your grade is: {{courseGrades.23}}</div>
 			<a href="#" data-toggle="modal" data-target="#23modal"></a></td>
 		<td style="background-color:{{classTaken.28}}" id = "28" {{classTaken.28}}>
-			<div style="display: inline;" id="28Info">{{courseNames.28}} <br><br> {{courseId.28}} <br><br> {{courseCredits.28}} Credits <br><br> Your grade is: Did not Take</div>
+			<div style="display: inline;" id="28Info">{{courseNames.28}} <br><br> {{courseId.28}} <br><br> {{courseCredits.28}} Credits <br><br> Your grade is: {{courseGrades.28}}</div>
 			<a href="#" data-toggle="modal" data-target="#28modal"></a></td>
 		<td style="background-color:{{classTaken.33}}" id = "33" {{classTaken.33}}>
-			<div style="display: inline;" id="33Info">{{courseNames.33}} <br><br> {{courseId.33}} <br><br> {{courseCredits.33}} Credits <br><br> Your grade is: Did not Take</div>
+			<div style="display: inline;" id="33Info">{{courseNames.33}} <br><br> {{courseId.33}} <br><br> {{courseCredits.33}} Credits <br><br> Your grade is: {{courseGrades.33}}</div>
 			<a href="#" data-toggle="modal" data-target="#33modal"></a></td>
 		<td style="background-color:{{classTaken.38}}" id = "38" {{classTaken.38}}>
-			<div style="display: inline;" id="38Info">{{courseNames.38}} <br><br> {{courseId.38}} <br><br> {{courseCredits.38}} Credits <br><br> Your grade is: Did not Take</div>
+			<div style="display: inline;" id="38Info">{{courseNames.38}} <br><br> {{courseId.38}} <br><br> {{courseCredits.38}} Credits <br><br> Your grade is: {{courseGrades.38}}</div>
 			<a href="#" data-toggle="modal" data-target="#38modal"></a></td>
 	</tr>
 	<tr>
 		<td style="background-color:{{classTaken.4}}" id = "4" {{classTaken.4}}>
-			<div style="display: inline;" id="4Info">{{courseNames.4}} <br><br> {{courseId.4}} <br><br> {{courseCredits.4}} Credits <br><br> Your grade is: Did not Take</div>
+			<div style="display: inline;" id="4Info">{{courseNames.4}} <br><br> {{courseId.4}} <br><br> {{courseCredits.4}} Credits <br><br> Your grade is: {{courseGrades.4}}</div>
 			<a href="#" data-toggle="modal" data-target="#4modal"></a></td>
 		<td style="background-color:{{classTaken.9}}" id = "9" {{classTaken.9}}>
-			<div style="display: inline;" id="9Info">{{courseNames.9}} <br><br> {{courseId.9}} <br><br> {{courseCredits.9}} Credits <br><br> Your grade is: Did not Take</div>
+			<div style="display: inline;" id="9Info">{{courseNames.9}} <br><br> {{courseId.9}} <br><br> {{courseCredits.9}} Credits <br><br> Your grade is: {{courseGrades.9}}</div>
 			<a href="#" data-toggle="modal" data-target="#9modal"></a></td>
 		<td style="background-color:{{classTaken.14}}" id = "14" {{classTaken.14}}>
-			<div style="display: inline;" id="14Info">{{courseNames.14}} <br><br> {{courseId.14}} <br><br> {{courseCredits.14}} Credits <br><br> Your grade is: Did not Take</div>
+			<div style="display: inline;" id="14Info">{{courseNames.14}} <br><br> {{courseId.14}} <br><br> {{courseCredits.14}} Credits <br><br> Your grade is: {{courseGrades.14}}</div>
 			<a href="#" data-toggle="modal" data-target="#14modal"></a></td>
 		<td style="background-color:{{classTaken.19}}" id = "19" {{classTaken.19}}>
-			<div style="display: inline;" id="19Info">{{courseNames.19}} <br><br> {{courseId.19}} <br><br> {{courseCredits.19}} Credits <br><br> Your grade is: Did not Take</div>
+			<div style="display: inline;" id="19Info">{{courseNames.19}} <br><br> {{courseId.19}} <br><br> {{courseCredits.19}} Credits <br><br> Your grade is: {{courseGrades.19}}</div>
 			<a href="#" data-toggle="modal" data-target="#19modal"></a></td>
 		<td style="background-color:{{classTaken.24}}" id = "24" {{classTaken.24}}>
-			<div style="display: inline;" id="24Info">{{courseNames.24}} <br><br> {{courseId.24}} <br><br> {{courseCredits.24}} Credits <br><br> Your grade is: Did not Take</div>
+			<div style="display: inline;" id="24Info">{{courseNames.24}} <br><br> {{courseId.24}} <br><br> {{courseCredits.24}} Credits <br><br> Your grade is: {{courseGrades.24}}</div>
 			<a href="#" data-toggle="modal" data-target="#24modal"></a></td>
 		<td style="background-color:{{classTaken.29}}" id = "29" {{classTaken.29}}>
-			<div style="display: inline;" id="29Info">{{courseNames.29}} <br><br> {{courseId.29}} <br><br> {{courseCredits.29}} Credits <br><br> Your grade is: Did not Take</div>
+			<div style="display: inline;" id="29Info">{{courseNames.29}} <br><br> {{courseId.29}} <br><br> {{courseCredits.29}} Credits <br><br> Your grade is: {{courseGrades.29}}</div>
 			<a href="#" data-toggle="modal" data-target="#29modal"></a></td>
 		<td style="background-color:{{classTaken.34}}" id = "34" {{classTaken.34}}>
-			<div style="display: inline;" id="34Info">{{courseNames.34}} <br><br> {{courseId.34}} <br><br> {{courseCredits.34}} Credits <br><br> Your grade is: Did not Take</div>
+			<div style="display: inline;" id="34Info">{{courseNames.34}} <br><br> {{courseId.34}} <br><br> {{courseCredits.34}} Credits <br><br> Your grade is: {{courseGrades.34}}</div>
 			<a href="#" data-toggle="modal" data-target="#34modal"></a></td>
 		<td style="background-color:{{classTaken.39}}" id = "39" {{classTaken.39}}>
-			<div style="display: inline;" id="39Info">{{courseNames.39}} <br><br> {{courseId.39}} <br><br> {{courseCredits.39}} Credits <br><br> Your grade is: Did not Take</div>
+			<div style="display: inline;" id="39Info">{{courseNames.39}} <br><br> {{courseId.39}} <br><br> {{courseCredits.39}} Credits <br><br> Your grade is: {{courseGrades.39}}</div>
 			<a href="#" data-toggle="modal" data-target="#39modal"></a></td>
 	</tr>
 </table>

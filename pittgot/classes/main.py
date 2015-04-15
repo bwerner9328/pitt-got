@@ -61,6 +61,7 @@ class Main(webapp2.RequestHandler):
 
     if q.get():
       p = q.get()
+      #p.userclassestaken[cellnumber]=courseTaken
       p.courses[cellnumber].courseTaken = courseTaken      
       p.courses[cellnumber].courseName= courseName
       p.courses[cellnumber].courseId = courseId      

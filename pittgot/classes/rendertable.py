@@ -53,7 +53,7 @@ def render_table(self, q):
     if(userclassestaken):
       if(userclassestaken[i] == True):
         tableElement[i] = "#a2edb1"
-        count = count = count +1
+        count = count +1
       else:
         tableElement[i] = "#ffffff"
     else:
