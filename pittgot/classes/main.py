@@ -35,8 +35,8 @@ class Main(webapp2.RequestHandler):
       if q.get():
         render_table(self, q)
 
-
-
+        
+        
       else:
         welcome_params = {
         "name" : user.nickname()
@@ -62,6 +62,9 @@ class Main(webapp2.RequestHandler):
       p = q.get()
       p.courses[0].courseTaken = courseTaken      
       p.courses[0].courseName= courseName
+      p.courses[0].courseId = courseId      
+      p.courses[0].courseCredits= courseCredits
+      p.courses[0].courseGrade = courseGrade
       p.put()
 
 
